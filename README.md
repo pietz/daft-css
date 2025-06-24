@@ -48,12 +48,11 @@ Change your entire theme with just one CSS variable:
 
 ```css
 :root {
-  --daft-theme-color: #0066cc; /* Any color you want! */
+  --daft-theme: #0066cc; /* Any color you want! */
 }
 ```
 
 Or use any CSS color format:
-- Hex: `#ff6b6b`
 - RGB: `rgb(255, 107, 107)`
 - HSL: `hsl(0, 100%, 71%)`
 - Named colors: `dodgerblue`

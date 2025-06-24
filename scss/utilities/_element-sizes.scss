@@ -27,8 +27,14 @@
     ),
   #{$parent-selector} select.small,
   #{$parent-selector} textarea.small {
-    padding: calc(var(#{$css-var-prefix}spacing) * 0.25)
-      calc(var(#{$css-var-prefix}spacing) * 0.5);
+    #{$css-var-prefix}form-element-spacing-vertical: calc(
+      var(#{$css-var-prefix}spacing) * 0.25
+    );
+    #{$css-var-prefix}form-element-spacing-horizontal: calc(
+      var(#{$css-var-prefix}spacing) * 0.5
+    );
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical)
+      var(#{$css-var-prefix}form-element-spacing-horizontal);
   }
 
   // Adjust height for small inputs
@@ -72,8 +78,14 @@
     ),
   #{$parent-selector} select.large,
   #{$parent-selector} textarea.large {
-    padding: var(#{$css-var-prefix}spacing)
-      calc(var(#{$css-var-prefix}spacing) * 2);
+    #{$css-var-prefix}form-element-spacing-vertical: calc(
+      var(#{$css-var-prefix}spacing) * 0.75
+    );
+    #{$css-var-prefix}form-element-spacing-horizontal: calc(
+      var(#{$css-var-prefix}spacing) * 1.5
+    );
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical)
+      var(#{$css-var-prefix}form-element-spacing-horizontal);
   }
 
   // Adjust height for large inputs
@@ -116,8 +128,14 @@
     ):not(.large),
   #{$parent-selector} .small select:not(.large),
   #{$parent-selector} .small textarea:not(.large) {
-    padding: calc(var(#{$css-var-prefix}spacing) * 0.25)
-      calc(var(#{$css-var-prefix}spacing) * 0.5);
+    #{$css-var-prefix}form-element-spacing-vertical: calc(
+      var(#{$css-var-prefix}spacing) * 0.25
+    );
+    #{$css-var-prefix}form-element-spacing-horizontal: calc(
+      var(#{$css-var-prefix}spacing) * 0.5
+    );
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical)
+      var(#{$css-var-prefix}form-element-spacing-horizontal);
   }
 
   // Adjust height for small inputs in container
@@ -162,8 +180,14 @@
     ):not(.small),
   #{$parent-selector} .large select:not(.small),
   #{$parent-selector} .large textarea:not(.small) {
-    padding: var(#{$css-var-prefix}spacing)
-      calc(var(#{$css-var-prefix}spacing) * 2);
+    #{$css-var-prefix}form-element-spacing-vertical: calc(
+      var(#{$css-var-prefix}spacing) * 0.75
+    );
+    #{$css-var-prefix}form-element-spacing-horizontal: calc(
+      var(#{$css-var-prefix}spacing) * 1.5
+    );
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical)
+      var(#{$css-var-prefix}form-element-spacing-horizontal);
   }
 
   // Adjust height for large inputs in container

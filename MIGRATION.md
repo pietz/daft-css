@@ -40,26 +40,26 @@ Simply set one CSS variable with any valid CSS color:
 
 ```css
 :root {
-  --daft-theme-color: #2060df;  /* Hex */
+  --daft-theme: #2060df;  /* Hex */
 }
 
 /* Also works with: */
---daft-theme-color: rgb(32, 96, 223);      /* RGB */
---daft-theme-color: hsl(220, 85%, 55%);    /* HSL */
---daft-theme-color: tomato;                /* Named colors */
---daft-theme-color: #f09;                  /* Short hex */
+--daft-theme: rgb(32, 96, 223);      /* RGB */
+--daft-theme: hsl(220, 85%, 55%);    /* HSL */
+--daft-theme: tomato;                /* Named colors */
+--daft-theme: #f09;                  /* Short hex */
 ```
 
 ### 3. Theme Color Equivalents
 
 | Old Theme File | New Color Value |
 |----------------|-----------------|
-| daft.azure.css | `--daft-theme-color: #0172ad;` |
-| daft.blue.css | `--daft-theme-color: #2060df;` |
-| daft.green.css | `--daft-theme-color: #10b981;` |
-| daft.orange.css | `--daft-theme-color: #f97316;` |
-| daft.purple.css | `--daft-theme-color: #8b5cf6;` |
-| daft.red.css | `--daft-theme-color: #ef4444;` |
+| daft.azure.css | `--daft-theme: #0172ad;` |
+| daft.blue.css | `--daft-theme: #2060df;` |
+| daft.green.css | `--daft-theme: #10b981;` |
+| daft.orange.css | `--daft-theme: #f97316;` |
+| daft.purple.css | `--daft-theme: #8b5cf6;` |
+| daft.red.css | `--daft-theme: #ef4444;` |
 
 ### 4. Custom Overrides
 
@@ -80,7 +80,7 @@ These are now automatically calculated! If you need to override:
   /* Adjust the calculation instead */
   --daft-primary-hover: color-mix(
     in srgb,
-    var(--daft-theme-color),
+    var(--daft-theme),
     black 25%  /* More contrast */
   );
 }

@@ -11,41 +11,41 @@
 @mixin color-system() {
   // User-customizable theme color - accepts any CSS color format
   // Examples: #2060df, rgb(32, 96, 223), hsl(220, 85%, 55%), etc.
-  #{$css-var-prefix}theme-color: #2060df; // Default blue
+  #{$css-var-prefix}theme: #2060df; // Default blue
 
   // Primary color and its variations using color-mix()
-  #{$css-var-prefix}primary: var(#{$css-var-prefix}theme-color);
+  #{$css-var-prefix}primary: var(#{$css-var-prefix}theme);
 
   // Automatically calculated variations
   #{$css-var-prefix}primary-hover: color-mix(
     in srgb,
-    var(#{$css-var-prefix}theme-color),
+    var(#{$css-var-prefix}theme),
     black 20%
   );
 
   #{$css-var-prefix}primary-active: color-mix(
     in srgb,
-    var(#{$css-var-prefix}theme-color),
+    var(#{$css-var-prefix}theme),
     black 30%
   );
 
   #{$css-var-prefix}primary-focus: color-mix(
     in srgb,
-    var(#{$css-var-prefix}theme-color),
+    var(#{$css-var-prefix}theme),
     transparent 75%
   );
 
   // For backgrounds and borders
   #{$css-var-prefix}primary-subtle: color-mix(
     in srgb,
-    var(#{$css-var-prefix}theme-color),
+    var(#{$css-var-prefix}theme),
     transparent 90%
   );
 
   // Text color variation (darker version of primary)
   #{$css-var-prefix}primary-text: color-mix(
     in srgb,
-    var(#{$css-var-prefix}theme-color),
+    var(#{$css-var-prefix}theme),
     black 35%
   );
 }

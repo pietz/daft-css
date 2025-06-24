@@ -12,19 +12,19 @@
     <style>
         /* Custom theme colors - users can override these */
         .theme-default {
-            --daft-theme-color: #2060df;
+            --daft-theme: #2060df;
         }
         
         .theme-green {
-            --daft-theme-color: #10b981;
+            --daft-theme: #10b981;
         }
         
         .theme-purple {
-            --daft-theme-color: #8b5cf6;
+            --daft-theme: #8b5cf6;
         }
         
         .theme-orange {
-            --daft-theme-color: #f97316;
+            --daft-theme: #f97316;
         }
         
         .theme-picker {
@@ -148,13 +148,13 @@
             <h2>How It Works</h2>
             <p>The simplified color system uses just one CSS variable to control the entire theme:</p>
             <pre><code>:root {
-    --daft-theme-color: #2060df;  /* Any CSS color! */
+    --daft-theme: #2060df;  /* Any CSS color! */
 }
 
 /* Also works with: */
---daft-theme-color: rgb(32, 96, 223);
---daft-theme-color: hsl(220, 85%, 55%);
---daft-theme-color: tomato;</code></pre>
+--daft-theme: rgb(32, 96, 223);
+--daft-theme: hsl(220, 85%, 55%);
+--daft-theme: tomato;</code></pre>
             
             <p>All other colors are automatically calculated from these base values:</p>
             <ul>
@@ -183,7 +183,7 @@
             const color = textInput.value || picker.value;
             
             // Update the CSS variable
-            document.documentElement.style.setProperty('--daft-theme-color', color);
+            document.documentElement.style.setProperty('--daft-theme', color);
             
             // Update both inputs to stay in sync
             if (textInput.value && isValidColor(textInput.value)) {

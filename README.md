@@ -74,6 +74,12 @@ Or use any CSS color format:
 </html>
 ```
 
+## Changelog
+
+### Recent Updates
+
+- [x] **Fixed search input text overlap** - Implemented CSS variable-based spacing system for `.small` and `.large` form elements, ensuring consistent padding calculations across all input types including search fields
+
 ## Credits
 
 This project is built upon the excellent foundation of [PicoCSS](https://github.com/picocss/pico), created by [Lucas Larroche](https://github.com/lucaslarroche). We are grateful for their work in creating a minimal, semantic CSS framework that serves as the perfect starting point for this more opinionated variant.

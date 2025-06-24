@@ -1,10 +1,10 @@
 @use "helpers/copyright";
 
-// Settings
-@use "settings";
+// Config
+@forward "settings";
 
-// Theming - Use simplified color system
-@use "theme";
+// Theming
+@use "themes/default";
 
 // Layout
 @use "layout/document"; // html
@@ -35,7 +35,6 @@
 
 // Components
 @use "components/accordion"; // details, summary
-@use "components/badge"; // .badge
 @use "components/card"; // article
 @use "components/dropdown"; // details.dropdown
 @use "components/group"; // role="group"
@@ -48,4 +47,3 @@
 // Utilities
 @use "utilities/accessibility"; // -ms-touch-action, aria-*
 @use "utilities/reduce-motion"; // prefers-reduced-motion
-@use "utilities/element-sizes"; // .small, .large for buttons and forms

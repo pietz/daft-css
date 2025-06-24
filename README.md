@@ -6,17 +6,20 @@
 
 DaftCSS is a fork of the excellent [PicoCSS](https://github.com/picocss/pico) framework. Just like Pico, it's a minimal class-light semantic CSS framework that adds and changes a few things:
 
-- **Revolutionary Color System**: Single CSS file with infinite color themes via 1 CSS variable (v1.0)
-- **Adjusted Styling**: Is it more beautiful than Pico? No, it just take the design in a different more `shadcn/ui` direction.
-- **Additional Components**: Extended component library beyond Pico's minimal set
-- **Scale**: PicoCSS scales weirdly huge on larger viewports. Daft keeps it at a reasonable scale.
-- **More Utilities**: Additional utilities and helpers while keeping the semantic, class-light philosophy
+### What's the same?
 
-This project maintains the core philosophy of semantic HTML and minimal classes from PicoCSS, but adds a layer of enhanced functionality and different visual polish for developers who want more out-of-the-box.
+- [x] **Semantic HTML** - Focus on writing HTML the way it was intended
+- [x] **Class-Light** - Most HTML components come prestyled reducing the use of classes
+- [X] **Tiny Footprint** - DaftCSS is even smaller than Pico because of a new color system
+- [x] **No Dependencies** - The single CSS file includes everything you need
 
-## Changelog
+### What's new?
 
-### What's different from PicoCSS
+- [x] **Element Sizing Utilities** - Added `.small` and `.large` classes for buttons, form elements and forms
+- [x] **Grid Column Spanning** - `.span-2`, `.span-3`, and `.span-4` make grid items span multiple columns
+- [x] **Badge Component** - `.badge` component with size and color variants `<span class="badge">Badge</span>`
+
+### What's different?
 
 - [x] **Default Only** - We removed `classless`, `fluid` and `conditional` options
 - [x] **No Themes** - Instead of different CSS files, just change the `--daft-theme` base color
@@ -25,12 +28,6 @@ This project maintains the core philosophy of semantic HTML and minimal classes 
 - [x] **Simplified Variables** - Reduced from 336+ color variables to ~30 core variables
 - [x] **Visual Details** - Multiple small design, color and layout changes
 - [x] **Inter Font** - As the default font family if it's installed
-
-### Additions
-
-- [x] **Element Sizing Utilities** - Added `.small` and `.large` classes for buttons, form elements and forms
-- [x] **Grid Column Spanning** - `.span-2`, `.span-3`, and `.span-4` make grid items span multiple columns
-- [x] **Badge Component** - `.badge` component with size and color variants `<span class="badge">Badge</span>`
 
 ## Quick Start
 

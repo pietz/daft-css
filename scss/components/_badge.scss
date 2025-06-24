@@ -1,0 +1,96 @@
+@use "sass:map";
+@use "../settings" as *;
+
+@if map.get($modules, "components/badge") {
+  /**
+   * Badge (<span class="badge">)
+   */
+
+  #{$parent-selector} .badge {
+    // Display
+    display: inline-block;
+
+    // Spacing
+    padding: 0.125rem 0.5rem;
+    border: var(#{$css-var-prefix}border-width)
+      solid
+      var(#{$css-var-prefix}badge-border-color);
+
+    // Appearance
+    border-radius: 0.25rem;
+    background-color: var(#{$css-var-prefix}badge-background-color);
+    color: var(#{$css-var-prefix}badge-color);
+    font-weight: 500;
+
+    // Typography
+    font-size: 0.875em;
+    line-height: 1.25;
+
+    // Default colors (uses primary scheme like buttons)
+    #{$css-var-prefix}badge-background-color: var(
+      #{$css-var-prefix}primary-background
+    );
+    #{$css-var-prefix}badge-color: var(#{$css-var-prefix}primary-inverse);
+    #{$css-var-prefix}badge-border-color: transparent;
+
+    // Ensure inline alignment
+    vertical-align: baseline;
+
+    // Size variants
+    &.small {
+      padding: 0.0625rem 0.375rem;
+      font-size: 0.75em;
+    }
+
+    &.large {
+      padding: 0.25rem 0.75rem;
+      font-size: 1em;
+    }
+
+    // Color variants - using Pico's color system
+    &.primary {
+      #{$css-var-prefix}badge-background-color: var(
+        #{$css-var-prefix}primary-background
+      );
+      #{$css-var-prefix}badge-color: var(#{$css-var-prefix}primary-inverse);
+    }
+
+    &.secondary {
+      #{$css-var-prefix}badge-background-color: var(
+        #{$css-var-prefix}secondary-background
+      );
+      #{$css-var-prefix}badge-color: var(#{$css-var-prefix}secondary-inverse);
+    }
+
+    &.contrast {
+      #{$css-var-prefix}badge-background-color: var(
+        #{$css-var-prefix}contrast-background
+      );
+      #{$css-var-prefix}badge-color: var(#{$css-var-prefix}contrast-inverse);
+    }
+
+    // Outline variants
+    &.outline {
+      background-color: transparent;
+      #{$css-var-prefix}badge-color: var(#{$css-var-prefix}primary);
+      #{$css-var-prefix}badge-border-color: var(#{$css-var-prefix}primary);
+
+      &.primary {
+        #{$css-var-prefix}badge-color: var(#{$css-var-prefix}primary);
+        #{$css-var-prefix}badge-border-color: var(#{$css-var-prefix}primary);
+      }
+
+      &.secondary {
+        #{$css-var-prefix}badge-color: var(#{$css-var-prefix}secondary-inverse);
+        #{$css-var-prefix}badge-border-color: var(
+          #{$css-var-prefix}form-element-border-color
+        );
+      }
+
+      &.contrast {
+        #{$css-var-prefix}badge-color: var(#{$css-var-prefix}contrast);
+        #{$css-var-prefix}badge-border-color: var(#{$css-var-prefix}contrast);
+      }
+    }
+  }
+}

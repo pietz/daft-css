@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Simplified Color System • DaftCSS</title>
+    <meta name="description" content="Demo of the new simplified color system">
+    <link rel="stylesheet" href="css/daft.min.css">
+    
+    <style>
+        /* Custom theme colors - users can override these */
+        .theme-default {
+            --daft-theme-color: #2060df;
+        }
+        
+        .theme-green {
+            --daft-theme-color: #10b981;
+        }
+        
+        .theme-purple {
+            --daft-theme-color: #8b5cf6;
+        }
+        
+        .theme-orange {
+            --daft-theme-color: #f97316;
+        }
+        
+        .theme-picker {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .color-input-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .color-preview {
+            width: 3rem;
+            height: 3rem;
+            border-radius: var(--daft-border-radius);
+            background-color: var(--daft-primary);
+            border: 2px solid var(--daft-border);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="container">
+        <hgroup>
+            <h1>DaftCSS Simplified Color System</h1>
+            <p>Change the entire theme with just one CSS variable!</p>
+        </hgroup>
+        
+        <!-- Theme Picker -->
+        <section class="theme-picker">
+            <button onclick="document.body.className = 'theme-default'">Default Blue</button>
+            <button onclick="document.body.className = 'theme-green'" class="secondary">Green Theme</button>
+            <button onclick="document.body.className = 'theme-purple'" class="secondary">Purple Theme</button>
+            <button onclick="document.body.className = 'theme-orange'" class="secondary">Orange Theme</button>
+        </section>
+        
+        <!-- Custom Color Controls -->
+        <details>
+            <summary>Custom Color Controls</summary>
+            <div class="grid">
+                <div class="color-input-group">
+                    <label for="color-picker">Choose any color:</label>
+                    <input type="color" id="color-picker" value="#2060df" 
+                           oninput="updateTheme()">
+                    <input type="text" id="color-value" value="#2060df" 
+                           placeholder="Enter any color (hex, rgb, hsl...)"
+                           oninput="updateTheme()">
+                </div>
+                <div class="color-preview"></div>
+            </div>
+            <p><small>Try different formats: #ff6b6b, rgb(255, 107, 107), hsl(0, 100%, 71%), or even named colors like "tomato"!</small></p>
+        </details>
+    </header>
+
+    <!-- Main -->
+    <main class="container">
+        <!-- Components Preview -->
+        <section id="components">
+            <h2>Components with Your Theme</h2>
+            
+            <!-- Buttons -->
+            <h3>Buttons</h3>
+            <div class="grid">
+                <button>Primary Button</button>
+                <button class="secondary">Secondary Button</button>
+                <button class="contrast">Contrast Button</button>
+                <button class="outline">Outline Button</button>
+            </div>
+            
+            <!-- Form Elements -->
+            <h3>Form Elements</h3>
+            <form>
+                <div class="grid">
+                    <input type="text" placeholder="Text input" aria-label="Text input">
+                    <select aria-label="Select">
+                        <option>Select option</option>
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                    </select>
+                </div>
+                <textarea placeholder="Textarea" aria-label="Textarea"></textarea>
+                <label>
+                    <input type="checkbox" role="switch">
+                    Toggle switch
+                </label>
+                <progress value="70" max="100"></progress>
+            </form>
+            
+            <!-- Cards -->
+            <h3>Cards</h3>
+            <article>
+                <header>
+                    <h4>Card Title</h4>
+                </header>
+                <p>This card automatically adapts to your chosen theme color. The borders, shadows, and backgrounds all adjust based on the primary color.</p>
+                <footer>
+                    <button class="secondary">Action</button>
+                </footer>
+            </article>
+            
+            <!-- Alerts -->
+            <h3>Semantic Colors</h3>
+            <div style="padding: 1rem; background: var(--daft-success-subtle); color: var(--daft-success); border-radius: var(--daft-border-radius); margin-bottom: 1rem;">
+                Success message with semantic color
+            </div>
+            <div style="padding: 1rem; background: var(--daft-danger-subtle); color: var(--daft-danger); border-radius: var(--daft-border-radius); margin-bottom: 1rem;">
+                Error message with semantic color
+            </div>
+            <div style="padding: 1rem; background: var(--daft-warning-subtle); color: var(--daft-warning); border-radius: var(--daft-border-radius);">
+                Warning message with semantic color
+            </div>
+        </section>
+        
+        <!-- Implementation Guide -->
+        <section id="implementation">
+            <h2>How It Works</h2>
+            <p>The simplified color system uses just one CSS variable to control the entire theme:</p>
+            <pre><code>:root {
+    --daft-theme-color: #2060df;  /* Any CSS color! */
+}
+
+/* Also works with: */
+--daft-theme-color: rgb(32, 96, 223);
+--daft-theme-color: hsl(220, 85%, 55%);
+--daft-theme-color: tomato;</code></pre>
+            
+            <p>All other colors are automatically calculated from these base values:</p>
+            <ul>
+                <li>Hover states are dynamically darkened</li>
+                <li>Focus states use transparency</li>
+                <li>Borders and backgrounds use color-mix()</li>
+                <li>Text colors adapt to maintain contrast</li>
+            </ul>
+            
+            <h3>Benefits</h3>
+            <ul>
+                <li><strong>Single CSS file</strong> instead of 19 theme files</li>
+                <li><strong>Infinite color possibilities</strong> instead of predefined themes</li>
+                <li><strong>~90% smaller</strong> CSS footprint</li>
+                <li><strong>Easy customization</strong> with just 1 variable</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        function updateTheme() {
+            const picker = document.getElementById('color-picker');
+            const textInput = document.getElementById('color-value');
+            
+            // If text input has a value, use it; otherwise use color picker
+            const color = textInput.value || picker.value;
+            
+            // Update the CSS variable
+            document.documentElement.style.setProperty('--daft-theme-color', color);
+            
+            // Update both inputs to stay in sync
+            if (textInput.value && isValidColor(textInput.value)) {
+                // Try to update color picker if it's a valid hex
+                if (textInput.value.match(/^#[0-9A-F]{6}$/i)) {
+                    picker.value = textInput.value;
+                }
+            } else {
+                textInput.value = picker.value;
+            }
+            
+            // Clear preset theme classes
+            document.body.className = '';
+        }
+        
+        function isValidColor(color) {
+            const s = new Option().style;
+            s.color = color;
+            return s.color !== '';
+        }
+    </script>
+</body>
+</html>

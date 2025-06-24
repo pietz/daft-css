@@ -1,0 +1,37 @@
+{
+  "name": "pietz/pyco-css",
+  "description": "A more opinionated CSS framework with enhanced features - fork of Pico CSS.",
+  "keywords": [
+    "css",
+    "css-framework",
+    "dark-mode",
+    "dark-theme",
+    "lightweight",
+    "minimal",
+    "minimalist",
+    "minimalistic",
+    "native-html",
+    "scss-framework",
+    "semantic",
+    "opinionated",
+    "enhanced"
+  ],
+  "homepage": "https://github.com/pietz/pyco-css",
+  "authors": [
+    {
+      "name": "pietz",
+      "homepage": "https://github.com/pietz",
+      "role": "Developer"
+    },
+    {
+      "name": "Lucas Larroche",
+      "email": "lucas@larroche.com",
+      "homepage": "https://lucaslarroche.com",
+      "role": "Original Author of Pico CSS"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/pietz/pyco-css/issues/"
+  },
+  "license": "MIT"
+}

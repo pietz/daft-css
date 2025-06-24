@@ -1,0 +1,175 @@
+@use "sass:color";
+@use "sass:math";
+@use "../../settings" as *;
+
+// Color System Core
+// =================
+// This file defines the simplified color system for Daft CSS.
+// Users can customize the theme by overriding a single CSS variable.
+
+// Core mixin for the simplified color system
+@mixin color-system() {
+  // User-customizable theme color - accepts any CSS color format
+  // Examples: #2060df, rgb(32, 96, 223), hsl(220, 85%, 55%), etc.
+  #{$css-var-prefix}theme-color: #2060df; // Default blue
+
+  // Primary color and its variations using color-mix()
+  #{$css-var-prefix}primary: var(#{$css-var-prefix}theme-color);
+
+  // Automatically calculated variations
+  #{$css-var-prefix}primary-hover: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}theme-color),
+    black 20%
+  );
+
+  #{$css-var-prefix}primary-active: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}theme-color),
+    black 30%
+  );
+
+  #{$css-var-prefix}primary-focus: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}theme-color),
+    transparent 75%
+  );
+
+  // For backgrounds and borders
+  #{$css-var-prefix}primary-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}theme-color),
+    transparent 90%
+  );
+
+  // Text color variation (darker version of primary)
+  #{$css-var-prefix}primary-text: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}theme-color),
+    black 35%
+  );
+}
+
+// Light mode color system
+@mixin light-colors() {
+  @include color-system();
+
+  // Base colors
+  #{$css-var-prefix}background: #ffffff;
+  #{$css-var-prefix}text: #1a1a1a;
+
+  // Calculated shades
+  #{$css-var-prefix}text-muted: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}text) 60%,
+    var(#{$css-var-prefix}background)
+  );
+  #{$css-var-prefix}text-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}text) 40%,
+    var(#{$css-var-prefix}background)
+  );
+
+  // Borders and backgrounds
+  #{$css-var-prefix}border: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}text) 15%,
+    var(#{$css-var-prefix}background)
+  );
+  #{$css-var-prefix}background-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}text) 5%,
+    var(#{$css-var-prefix}background)
+  );
+  #{$css-var-prefix}background-muted: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}text) 10%,
+    var(#{$css-var-prefix}background)
+  );
+
+  // Semantic colors
+  #{$css-var-prefix}success: #10b981;
+  #{$css-var-prefix}success-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}success) 10%,
+    var(#{$css-var-prefix}background)
+  );
+  #{$css-var-prefix}danger: #ef4444;
+  #{$css-var-prefix}danger-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}danger) 10%,
+    var(#{$css-var-prefix}background)
+  );
+  #{$css-var-prefix}warning: #f59e0b;
+  #{$css-var-prefix}warning-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}warning) 10%,
+    var(#{$css-var-prefix}background)
+  );
+
+  // Inverse colors for buttons
+  #{$css-var-prefix}inverse: var(#{$css-var-prefix}background);
+  #{$css-var-prefix}inverse-text: var(#{$css-var-prefix}text);
+}
+
+// Dark mode color system
+@mixin dark-colors() {
+  @include color-system();
+
+  // Base colors
+  #{$css-var-prefix}background: #0a0a0a;
+  #{$css-var-prefix}text: #e5e5e5;
+
+  // Calculated shades
+  #{$css-var-prefix}text-muted: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}text) 60%,
+    var(#{$css-var-prefix}background)
+  );
+  #{$css-var-prefix}text-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}text) 40%,
+    var(#{$css-var-prefix}background)
+  );
+
+  // Borders and backgrounds
+  #{$css-var-prefix}border: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}text) 20%,
+    var(#{$css-var-prefix}background)
+  );
+  #{$css-var-prefix}background-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}text) 8%,
+    var(#{$css-var-prefix}background)
+  );
+  #{$css-var-prefix}background-muted: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}text) 15%,
+    var(#{$css-var-prefix}background)
+  );
+
+  // Semantic colors (slightly adjusted for dark mode)
+  #{$css-var-prefix}success: #10b981;
+  #{$css-var-prefix}success-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}success) 15%,
+    var(#{$css-var-prefix}background)
+  );
+  #{$css-var-prefix}danger: #ef4444;
+  #{$css-var-prefix}danger-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}danger) 15%,
+    var(#{$css-var-prefix}background)
+  );
+  #{$css-var-prefix}warning: #f59e0b;
+  #{$css-var-prefix}warning-subtle: color-mix(
+    in srgb,
+    var(#{$css-var-prefix}warning) 15%,
+    var(#{$css-var-prefix}background)
+  );
+
+  // Inverse colors for buttons
+  #{$css-var-prefix}inverse: var(#{$css-var-prefix}background);
+  #{$css-var-prefix}inverse-text: var(#{$css-var-prefix}text);
+}

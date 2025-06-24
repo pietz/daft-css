@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Component Demos • DaftCSS</title>
+    <meta name="description" content="Real-world component combinations using DaftCSS">
+    <link rel="stylesheet" href="css/daft.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="container">
+        <hgroup>
+            <h1>DaftCSS Component Demos</h1>
+            <p>Real-world UI blocks combining multiple components</p>
+        </hgroup>
+    </header>
+
+    <!-- Main -->
+    <main class="container">
+
+        <!-- Row 1: Login + Task Management + Stats -->
+        <div class="grid">
+            <!-- Login Card -->
+            <article class="span-2">
+                <h3>Welcome Back</h3>
+                <form>
+                    <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+                    <input type="password" name="password" placeholder="Password" aria-label="Password" required>
+                    <label for="remember">
+                        <input type="checkbox" id="remember" name="remember" role="switch">
+                        Remember me
+                    </label>
+                    <button type="submit" class="contrast">Sign In</button>
+                    <small>Don't have an account? <a href="#" class="secondary">Sign up</a></small>
+                </form>
+            </article>
+
+            <!-- Task Management -->
+            <article class="span-3">
+                <h4>Task Management</h4>
+                <div>
+                    <div class="grid">
+                        <div>
+                            <label>
+                                <input type="checkbox" name="task1">
+                                <strong>Review pull request #142</strong>
+                            </label>
+                        </div>
+                        <div>
+                            <span class="badge small secondary">Medium</span>
+                            <small>Due in 2 days</small>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>Task details</summary>
+                        <p>Review the updated authentication flow implementation and provide feedback on security
+                            considerations.</p>
+                    </details>
+                </div>
+                <hr>
+                <div>
+                    <div class="grid">
+                        <div>
+                            <label>
+                                <input type="checkbox" name="task2" checked>
+                                <strong><s>Update documentation</s></strong>
+                            </label>
+                        </div>
+                        <div>
+                            <span class="badge small">Completed</span>
+                            <small>1 hour ago</small>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <div class="grid">
+                        <div>
+                            <label>
+                                <input type="checkbox" name="task3">
+                                <strong>Fix responsive layout bug</strong>
+                            </label>
+                        </div>
+                        <div>
+                            <span class="badge small contrast">High</span>
+                            <small>Due today</small>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <div class="grid">
+                        <div>
+                            <label>
+                                <input type="checkbox" name="task4">
+                                <strong>Deploy to staging</strong>
+                            </label>
+                        </div>
+                        <div>
+                            <span class="badge small secondary">Low</span>
+                            <small>Due next week</small>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Stacked Stats -->
+            <div>
+                <article>
+                    <h5>Total Revenue</h5>
+                    <p style="font-size: 2rem; margin: 0;"><strong>$45,231</strong></p>
+                    <p>
+                        <span class="badge small">+12.5%</span>
+                        <small>vs last month</small>
+                    </p>
+                </article>
+
+                <article>
+                    <h5>Active Users</h5>
+                    <p style="font-size: 2rem; margin: 0;"><strong>2,842</strong></p>
+                    <p>
+                        <span class="badge small secondary">+5.2%</span>
+                        <small>vs last week</small>
+                    </p>
+                </article>
+            </div>
+        </div>
+
+        <!-- Row 2: User Profile + Search + Notifications -->
+        <div class="grid">
+            <!-- User Profile -->
+            <article>
+                <h4>Sarah Chen <span class="badge small contrast">Pro</span></h4>
+                <small>Senior Frontend Developer</small>
+                <blockquote>
+                    "Building beautiful, accessible web experiences with modern technologies."
+                </blockquote>
+                <div class="grid">
+                    <button class="small">Message</button>
+                    <button class="small secondary">Follow</button>
+                </div>
+            </article>
+
+            <!-- Search Interface -->
+            <article>
+                <h4>Search</h4>
+                <form>
+                    <fieldset role="group">
+                        <input type="search" name="search" placeholder="Search products...">
+                        <button type="submit">Search</button>
+                    </fieldset>
+                </form>
+                <hr>
+                <h5>Results</h5>
+                <p><mark>Wireless</mark> Headphones Pro <small>- $89.99</small></p>
+                <p><mark>Wireless</mark> Mouse <small>- $29.99</small></p>
+                <p><mark>Wireless</mark> Keyboard <small>- $59.99</small></p>
+            </article>
+
+            <!-- Notifications -->
+            <article>
+                <h4>Notifications</h4>
+                <div class="contrast"
+                    style="padding: var(--daft-spacing); border-radius: var(--daft-border-radius); margin-bottom: var(--daft-spacing);">
+                    <strong>System Update Available</strong>
+                    <p>Version 2.1.0 includes important security patches.</p>
+                    <progress value="75" max="100"></progress>
+                    <small>Installing... 75% complete</small>
+                </div>
+                <div>
+                    <strong>New team member</strong>
+                    <p>Maya Patel joined as Backend Developer.</p>
+                    <button class="small secondary">View Profile</button>
+                </div>
+            </article>
+        </div>
+
+        <!-- Row 3: Product Cards + Settings + Discussion -->
+        <div class="grid">
+            <!-- Product Cards -->
+            <div>
+                <article>
+                    <img src="https://via.placeholder.com/400x300" alt="Product image">
+                    <h5>Wireless Headphones</h5>
+                    <p>
+                        <strong>$89.99</strong> <del>$129.99</del>
+                        <span class="badge small secondary">Sale</span>
+                    </p>
+                    <button class="small">Add to Cart</button>
+                </article>
+
+                <article>
+                    <img src="https://via.placeholder.com/400x300" alt="Product image">
+                    <h5>Smart Watch Pro</h5>
+                    <p>
+                        <strong>$349.00</strong>
+                        <span class="badge small contrast">Limited</span>
+                    </p>
+                    <button class="small secondary">Pre-order</button>
+                </article>
+            </div>
+
+            <!-- Settings Panel -->
+            <article>
+                <fieldset>
+                    <legend>Notification Preferences</legend>
+
+                    <label for="email-notifications">
+                        <input type="checkbox" id="email-notifications" name="email-notifications" role="switch"
+                            checked>
+                        Email notifications
+                        <small>Receive updates about your account via email</small>
+                    </label>
+
+                    <label for="push-notifications">
+                        <input type="checkbox" id="push-notifications" name="push-notifications" role="switch">
+                        Push notifications
+                        <small>Get instant updates on your device</small>
+                    </label>
+
+                    <label for="marketing">
+                        <input type="checkbox" id="marketing" name="marketing" role="switch">
+                        Marketing emails
+                        <small>Receive news and special offers</small>
+                    </label>
+                </fieldset>
+                <button>Save Preferences</button>
+            </article>
+
+            <!-- Comments -->
+            <article>
+                <div>
+                    <strong>Jordan Williams</strong> <small>• 2 hours ago</small>
+                    <p>This new feature is exactly what we needed! The implementation is clean and the performance
+                        improvements are noticeable.</p>
+                    <div class="grid">
+                        <button class="outline small">Reply</button>
+                        <button class="small">👍 12</button>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <strong>Morgan Lee</strong> <small>• 45 minutes ago</small>
+                    <p>Great work on this update. The documentation is very helpful.</p>
+                    <div class="grid">
+                        <button class="outline small">Reply</button>
+                        <button class="small">👍 5</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Row 5: Remaining Stats + File Upload -->
+        <div class="grid">
+            <!-- Remaining Stats -->
+            <article>
+                <h5>Conversion Rate</h5>
+                <p style="font-size: 2rem; margin: 0;"><strong>3.24%</strong></p>
+                <p>
+                    <span class="badge small outline">-0.1%</span>
+                    <small>vs yesterday</small>
+                </p>
+            </article>
+
+            <!-- File Upload -->
+            <article>
+                <h4>Upload Document</h4>
+                <input type="file" id="file-upload" name="file-upload">
+                <progress value="60" max="100"></progress>
+                <p>
+                    <small aria-invalid="false">Uploading: report.pdf (60%)</small>
+                </p>
+                <button class="secondary small">Cancel Upload</button>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="container">
+        <small>Component demonstrations using <a href="https://picocss.com">DaftCSS</a></small>
+    </footer>
+</body>
+
+</html>

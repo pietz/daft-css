@@ -1,0 +1,224 @@
+@use "sass:map";
+@use "../settings" as *;
+
+@if $enable-classes and
+  (map.get($modules, "content/button") or map.get($modules, "forms/basic"))
+{
+  /**
+   * Element size utilities
+   */
+
+  // Small size - Direct application on elements
+  #{$parent-selector} button.small,
+  #{$parent-selector} [type="submit"].small,
+  #{$parent-selector} [type="button"].small,
+  #{$parent-selector} [type="reset"].small,
+  #{$parent-selector} [role="button"].small {
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical-small)
+      var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+  }
+
+  #{$parent-selector}
+    input.small:not(
+      [type="checkbox"],
+      [type="radio"],
+      [type="range"],
+      [type="file"]
+    ),
+  #{$parent-selector} select.small,
+  #{$parent-selector} textarea.small {
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical-small)
+      var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+  }
+
+  // Adjust height for small inputs
+  #{$parent-selector}
+    input.small:not([type="checkbox"], [type="radio"], [type="range"]) {
+    height: calc(
+      (1rem * var(#{$css-var-prefix}line-height)) +
+        (var(#{$css-var-prefix}form-element-spacing-vertical-small) * 2) +
+        (var(#{$css-var-prefix}border-width) * 2)
+    );
+  }
+
+  // Adjust padding for small selects with chevron
+  #{$parent-selector} select.small:not([multiple], [size]) {
+    padding-right: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal-small) + 1.5rem
+    );
+    padding-left: var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+    padding-inline-start: var(
+      #{$css-var-prefix}form-element-spacing-horizontal-small
+    );
+    padding-inline-end: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal-small) + 1.5rem
+    );
+  }
+
+  // Large size - Direct application on elements
+  #{$parent-selector} button.large,
+  #{$parent-selector} [type="submit"].large,
+  #{$parent-selector} [type="button"].large,
+  #{$parent-selector} [type="reset"].large,
+  #{$parent-selector} [role="button"].large {
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical-large)
+      var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+  }
+
+  #{$parent-selector}
+    input.large:not(
+      [type="checkbox"],
+      [type="radio"],
+      [type="range"],
+      [type="file"]
+    ),
+  #{$parent-selector} select.large,
+  #{$parent-selector} textarea.large {
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical-large)
+      var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+  }
+
+  // Adjust height for large inputs
+  #{$parent-selector}
+    input.large:not([type="checkbox"], [type="radio"], [type="range"]) {
+    height: calc(
+      (1rem * var(#{$css-var-prefix}line-height)) +
+        (var(#{$css-var-prefix}form-element-spacing-vertical-large) * 2) +
+        (var(#{$css-var-prefix}border-width) * 2)
+    );
+  }
+
+  // Adjust padding for large selects with chevron
+  #{$parent-selector} select.large:not([multiple], [size]) {
+    padding-right: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal-large) + 1.5rem
+    );
+    padding-left: var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+    padding-inline-start: var(
+      #{$css-var-prefix}form-element-spacing-horizontal-large
+    );
+    padding-inline-end: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal-large) + 1.5rem
+    );
+  }
+
+  // Container application - affects child elements
+  #{$parent-selector} .small button:not(.large),
+  #{$parent-selector} .small [type="submit"]:not(.large),
+  #{$parent-selector} .small [type="button"]:not(.large),
+  #{$parent-selector} .small [type="reset"]:not(.large),
+  #{$parent-selector} .small [role="button"]:not(.large) {
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical-small)
+      var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+  }
+
+  #{$parent-selector}
+    .small
+    input:not(
+      [type="checkbox"],
+      [type="radio"],
+      [type="range"],
+      [type="file"]
+    ):not(.large),
+  #{$parent-selector} .small select:not(.large),
+  #{$parent-selector} .small textarea:not(.large) {
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical-small)
+      var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+  }
+
+  // Adjust height for small inputs in container
+  #{$parent-selector}
+    .small
+    input:not([type="checkbox"], [type="radio"], [type="range"]):not(.large) {
+    height: calc(
+      (1rem * var(#{$css-var-prefix}line-height)) +
+        (var(#{$css-var-prefix}form-element-spacing-vertical-small) * 2) +
+        (var(#{$css-var-prefix}border-width) * 2)
+    );
+  }
+
+  // Adjust padding for small selects with chevron in container
+  #{$parent-selector} .small select:not([multiple], [size]):not(.large) {
+    padding-right: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal-small) + 1.5rem
+    );
+    padding-left: var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+    padding-inline-start: var(
+      #{$css-var-prefix}form-element-spacing-horizontal-small
+    );
+    padding-inline-end: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal-small) + 1.5rem
+    );
+  }
+
+  #{$parent-selector} .large button:not(.small),
+  #{$parent-selector} .large [type="submit"]:not(.small),
+  #{$parent-selector} .large [type="button"]:not(.small),
+  #{$parent-selector} .large [type="reset"]:not(.small),
+  #{$parent-selector} .large [role="button"]:not(.small) {
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical-large)
+      var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+  }
+
+  #{$parent-selector}
+    .large
+    input:not(
+      [type="checkbox"],
+      [type="radio"],
+      [type="range"],
+      [type="file"]
+    ):not(.small),
+  #{$parent-selector} .large select:not(.small),
+  #{$parent-selector} .large textarea:not(.small) {
+    padding: var(#{$css-var-prefix}form-element-spacing-vertical-large)
+      var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+  }
+
+  // Adjust height for large inputs in container
+  #{$parent-selector}
+    .large
+    input:not([type="checkbox"], [type="radio"], [type="range"]):not(.small) {
+    height: calc(
+      (1rem * var(#{$css-var-prefix}line-height)) +
+        (var(#{$css-var-prefix}form-element-spacing-vertical-large) * 2) +
+        (var(#{$css-var-prefix}border-width) * 2)
+    );
+  }
+
+  // Adjust padding for large selects with chevron in container
+  #{$parent-selector} .large select:not([multiple], [size]):not(.small) {
+    padding-right: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal-large) + 1.5rem
+    );
+    padding-left: var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+    padding-inline-start: var(
+      #{$css-var-prefix}form-element-spacing-horizontal-large
+    );
+    padding-inline-end: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal-large) + 1.5rem
+    );
+  }
+
+  // Special handling for groups
+  @if map.get($modules, "components/group") {
+    #{$parent-selector} [role="search"].small,
+    #{$parent-selector} [role="group"].small {
+      button,
+      [type="submit"],
+      [type="button"],
+      [role="button"] {
+        #{$css-var-prefix}form-element-spacing-horizontal: 0.75rem;
+      }
+    }
+
+    #{$parent-selector} [role="search"].large,
+    #{$parent-selector} [role="group"].large {
+      button,
+      [type="submit"],
+      [type="button"],
+      [role="button"] {
+        #{$css-var-prefix}form-element-spacing-horizontal: 1.25rem;
+      }
+    }
+  }
+}

@@ -59,6 +59,13 @@
     );
   }
 
+  // Adjust padding for small search inputs to accommodate icon
+  #{$parent-selector} input.small[type="search"] {
+    padding-inline-start: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal) + 1.5rem
+    );
+  }
+
   // Large size - Direct application on elements
   #{$parent-selector} button.large,
   #{$parent-selector} [type="submit"].large,
@@ -106,6 +113,13 @@
       #{$css-var-prefix}form-element-spacing-horizontal-large
     );
     padding-inline-end: calc(calc(var(#{$css-var-prefix}spacing) * 2) + 1.5rem);
+  }
+
+  // Adjust padding for large search inputs to accommodate icon
+  #{$parent-selector} input.large[type="search"] {
+    padding-inline-start: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal) + 2.25rem
+    );
   }
 
   // Container application - affects child elements
@@ -161,6 +175,13 @@
     );
   }
 
+  // Adjust padding for small search inputs in container to accommodate icon
+  #{$parent-selector} .small input[type="search"]:not(.large) {
+    padding-inline-start: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal) + 1.5rem
+    );
+  }
+
   #{$parent-selector} .large button:not(.small),
   #{$parent-selector} .large [type="submit"]:not(.small),
   #{$parent-selector} .large [type="button"]:not(.small),
@@ -209,6 +230,13 @@
       #{$css-var-prefix}form-element-spacing-horizontal-large
     );
     padding-inline-end: calc(calc(var(#{$css-var-prefix}spacing) * 2) + 1.5rem);
+  }
+
+  // Adjust padding for large search inputs in container to accommodate icon
+  #{$parent-selector} .large input[type="search"]:not(.small) {
+    padding-inline-start: calc(
+      var(#{$css-var-prefix}form-element-spacing-horizontal) + 2.25rem
+    );
   }
 
   // Special handling for groups

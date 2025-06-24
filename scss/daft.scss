@@ -4,7 +4,7 @@
 @use "settings";
 
 // Theming - Use simplified color system
-@use "themes/default" as theme;
+@use "theme";
 
 // Layout
 @use "layout/document"; // html

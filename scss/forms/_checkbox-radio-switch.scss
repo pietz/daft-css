@@ -35,10 +35,8 @@
     &:checked,
     &:checked:active,
     &:checked:focus {
-      #{$css-var-prefix}background-color: var(
-        #{$css-var-prefix}primary-background
-      );
-      #{$css-var-prefix}border-color: var(#{$css-var-prefix}primary-border);
+      #{$css-var-prefix}background-color: var(#{$css-var-prefix}primary);
+      #{$css-var-prefix}border-color: var(#{$css-var-prefix}primary);
       background-image: var(#{$css-var-prefix}icon-checkbox);
       background-position: center;
       background-size: 0.75em auto;
@@ -59,10 +57,8 @@
   // Checkboxes
   #{$parent-selector} [type="checkbox"] {
     &:indeterminate {
-      #{$css-var-prefix}background-color: var(
-        #{$css-var-prefix}primary-background
-      );
-      #{$css-var-prefix}border-color: var(#{$css-var-prefix}primary-border);
+      #{$css-var-prefix}background-color: var(#{$css-var-prefix}primary);
+      #{$css-var-prefix}border-color: var(#{$css-var-prefix}primary);
       background-image: var(#{$css-var-prefix}icon-minus);
       background-position: center;
       background-size: 0.75em auto;
@@ -77,9 +73,7 @@
     &:checked,
     &:checked:active,
     &:checked:focus {
-      #{$css-var-prefix}background-color: var(
-        #{$css-var-prefix}primary-inverse
-      );
+      #{$css-var-prefix}background-color: var(#{$css-var-prefix}background);
       border-width: 0.35em;
       background-image: none;
     }

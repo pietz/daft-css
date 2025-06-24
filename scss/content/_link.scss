@@ -10,7 +10,7 @@
   #{$parent-selector} [role="link"] {
     #{$css-var-prefix}color: var(#{$css-var-prefix}primary);
     #{$css-var-prefix}background-color: transparent;
-    #{$css-var-prefix}underline: var(#{$css-var-prefix}primary-underline);
+    #{$css-var-prefix}underline: var(#{$css-var-prefix}primary);
     outline: none;
     background-color: var(#{$css-var-prefix}background-color); // 1
     color: var(#{$css-var-prefix}color);
@@ -28,9 +28,7 @@
 
     &:is([aria-current]:not([aria-current="false"]), :hover, :active, :focus) {
       #{$css-var-prefix}color: var(#{$css-var-prefix}primary-hover);
-      #{$css-var-prefix}underline: var(
-        #{$css-var-prefix}primary-hover-underline
-      );
+      #{$css-var-prefix}underline: var(#{$css-var-prefix}primary-hover);
       #{$css-var-prefix}text-decoration: underline;
     }
 
@@ -45,8 +43,8 @@
     @if $enable-classes {
       // Secondary
       &.secondary {
-        #{$css-var-prefix}color: var(#{$css-var-prefix}secondary);
-        #{$css-var-prefix}underline: var(#{$css-var-prefix}secondary-underline);
+        #{$css-var-prefix}color: var(#{$css-var-prefix}text-muted);
+        #{$css-var-prefix}underline: var(#{$css-var-prefix}text-muted);
 
         &:is(
             [aria-current]:not([aria-current="false"]),
@@ -54,17 +52,15 @@
             :active,
             :focus
           ) {
-          #{$css-var-prefix}color: var(#{$css-var-prefix}secondary-hover);
-          #{$css-var-prefix}underline: var(
-            #{$css-var-prefix}secondary-hover-underline
-          );
+          #{$css-var-prefix}color: var(#{$css-var-prefix}text);
+          #{$css-var-prefix}underline: var(#{$css-var-prefix}text);
         }
       }
 
       // Contrast
       &.contrast {
-        #{$css-var-prefix}color: var(#{$css-var-prefix}contrast);
-        #{$css-var-prefix}underline: var(#{$css-var-prefix}contrast-underline);
+        #{$css-var-prefix}color: var(#{$css-var-prefix}text);
+        #{$css-var-prefix}underline: var(#{$css-var-prefix}text);
 
         &:is(
             [aria-current]:not([aria-current="false"]),
@@ -72,10 +68,8 @@
             :active,
             :focus
           ) {
-          #{$css-var-prefix}color: var(#{$css-var-prefix}contrast-hover);
-          #{$css-var-prefix}underline: var(
-            #{$css-var-prefix}contrast-hover-underline
-          );
+          #{$css-var-prefix}color: var(#{$css-var-prefix}text);
+          #{$css-var-prefix}underline: var(#{$css-var-prefix}text);
         }
       }
     }

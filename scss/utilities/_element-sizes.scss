@@ -14,8 +14,8 @@
   #{$parent-selector} [type="button"].small,
   #{$parent-selector} [type="reset"].small,
   #{$parent-selector} [role="button"].small {
-    padding: var(#{$css-var-prefix}form-element-spacing-vertical-small)
-      var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+    padding: calc(var(#{$css-var-prefix}spacing) * 0.25)
+      calc(var(#{$css-var-prefix}spacing) * 0.5);
   }
 
   #{$parent-selector}
@@ -27,8 +27,8 @@
     ),
   #{$parent-selector} select.small,
   #{$parent-selector} textarea.small {
-    padding: var(#{$css-var-prefix}form-element-spacing-vertical-small)
-      var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+    padding: calc(var(#{$css-var-prefix}spacing) * 0.25)
+      calc(var(#{$css-var-prefix}spacing) * 0.5);
   }
 
   // Adjust height for small inputs
@@ -36,22 +36,20 @@
     input.small:not([type="checkbox"], [type="radio"], [type="range"]) {
     height: calc(
       (1rem * var(#{$css-var-prefix}line-height)) +
-        (var(#{$css-var-prefix}form-element-spacing-vertical-small) * 2) +
+        (calc(var(#{$css-var-prefix}spacing) * 0.25) * 2) +
         (var(#{$css-var-prefix}border-width) * 2)
     );
   }
 
   // Adjust padding for small selects with chevron
   #{$parent-selector} select.small:not([multiple], [size]) {
-    padding-right: calc(
-      var(#{$css-var-prefix}form-element-spacing-horizontal-small) + 1.5rem
-    );
-    padding-left: var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+    padding-right: calc(calc(var(#{$css-var-prefix}spacing) * 0.5) + 1.5rem);
+    padding-left: calc(var(#{$css-var-prefix}spacing) * 0.5);
     padding-inline-start: var(
       #{$css-var-prefix}form-element-spacing-horizontal-small
     );
     padding-inline-end: calc(
-      var(#{$css-var-prefix}form-element-spacing-horizontal-small) + 1.5rem
+      calc(var(#{$css-var-prefix}spacing) * 0.5) + 1.5rem
     );
   }
 
@@ -61,8 +59,8 @@
   #{$parent-selector} [type="button"].large,
   #{$parent-selector} [type="reset"].large,
   #{$parent-selector} [role="button"].large {
-    padding: var(#{$css-var-prefix}form-element-spacing-vertical-large)
-      var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+    padding: var(#{$css-var-prefix}spacing)
+      calc(var(#{$css-var-prefix}spacing) * 2);
   }
 
   #{$parent-selector}
@@ -74,8 +72,8 @@
     ),
   #{$parent-selector} select.large,
   #{$parent-selector} textarea.large {
-    padding: var(#{$css-var-prefix}form-element-spacing-vertical-large)
-      var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+    padding: var(#{$css-var-prefix}spacing)
+      calc(var(#{$css-var-prefix}spacing) * 2);
   }
 
   // Adjust height for large inputs
@@ -83,23 +81,19 @@
     input.large:not([type="checkbox"], [type="radio"], [type="range"]) {
     height: calc(
       (1rem * var(#{$css-var-prefix}line-height)) +
-        (var(#{$css-var-prefix}form-element-spacing-vertical-large) * 2) +
+        (var(#{$css-var-prefix}spacing) * 2) +
         (var(#{$css-var-prefix}border-width) * 2)
     );
   }
 
   // Adjust padding for large selects with chevron
   #{$parent-selector} select.large:not([multiple], [size]) {
-    padding-right: calc(
-      var(#{$css-var-prefix}form-element-spacing-horizontal-large) + 1.5rem
-    );
-    padding-left: var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+    padding-right: calc(calc(var(#{$css-var-prefix}spacing) * 2) + 1.5rem);
+    padding-left: calc(var(#{$css-var-prefix}spacing) * 2);
     padding-inline-start: var(
       #{$css-var-prefix}form-element-spacing-horizontal-large
     );
-    padding-inline-end: calc(
-      var(#{$css-var-prefix}form-element-spacing-horizontal-large) + 1.5rem
-    );
+    padding-inline-end: calc(calc(var(#{$css-var-prefix}spacing) * 2) + 1.5rem);
   }
 
   // Container application - affects child elements
@@ -108,8 +102,8 @@
   #{$parent-selector} .small [type="button"]:not(.large),
   #{$parent-selector} .small [type="reset"]:not(.large),
   #{$parent-selector} .small [role="button"]:not(.large) {
-    padding: var(#{$css-var-prefix}form-element-spacing-vertical-small)
-      var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+    padding: calc(var(#{$css-var-prefix}spacing) * 0.25)
+      calc(var(#{$css-var-prefix}spacing) * 0.5);
   }
 
   #{$parent-selector}
@@ -122,8 +116,8 @@
     ):not(.large),
   #{$parent-selector} .small select:not(.large),
   #{$parent-selector} .small textarea:not(.large) {
-    padding: var(#{$css-var-prefix}form-element-spacing-vertical-small)
-      var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+    padding: calc(var(#{$css-var-prefix}spacing) * 0.25)
+      calc(var(#{$css-var-prefix}spacing) * 0.5);
   }
 
   // Adjust height for small inputs in container
@@ -132,22 +126,20 @@
     input:not([type="checkbox"], [type="radio"], [type="range"]):not(.large) {
     height: calc(
       (1rem * var(#{$css-var-prefix}line-height)) +
-        (var(#{$css-var-prefix}form-element-spacing-vertical-small) * 2) +
+        (calc(var(#{$css-var-prefix}spacing) * 0.25) * 2) +
         (var(#{$css-var-prefix}border-width) * 2)
     );
   }
 
   // Adjust padding for small selects with chevron in container
   #{$parent-selector} .small select:not([multiple], [size]):not(.large) {
-    padding-right: calc(
-      var(#{$css-var-prefix}form-element-spacing-horizontal-small) + 1.5rem
-    );
-    padding-left: var(#{$css-var-prefix}form-element-spacing-horizontal-small);
+    padding-right: calc(calc(var(#{$css-var-prefix}spacing) * 0.5) + 1.5rem);
+    padding-left: calc(var(#{$css-var-prefix}spacing) * 0.5);
     padding-inline-start: var(
       #{$css-var-prefix}form-element-spacing-horizontal-small
     );
     padding-inline-end: calc(
-      var(#{$css-var-prefix}form-element-spacing-horizontal-small) + 1.5rem
+      calc(var(#{$css-var-prefix}spacing) * 0.5) + 1.5rem
     );
   }
 
@@ -156,8 +148,8 @@
   #{$parent-selector} .large [type="button"]:not(.small),
   #{$parent-selector} .large [type="reset"]:not(.small),
   #{$parent-selector} .large [role="button"]:not(.small) {
-    padding: var(#{$css-var-prefix}form-element-spacing-vertical-large)
-      var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+    padding: var(#{$css-var-prefix}spacing)
+      calc(var(#{$css-var-prefix}spacing) * 2);
   }
 
   #{$parent-selector}
@@ -170,8 +162,8 @@
     ):not(.small),
   #{$parent-selector} .large select:not(.small),
   #{$parent-selector} .large textarea:not(.small) {
-    padding: var(#{$css-var-prefix}form-element-spacing-vertical-large)
-      var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+    padding: var(#{$css-var-prefix}spacing)
+      calc(var(#{$css-var-prefix}spacing) * 2);
   }
 
   // Adjust height for large inputs in container
@@ -180,23 +172,19 @@
     input:not([type="checkbox"], [type="radio"], [type="range"]):not(.small) {
     height: calc(
       (1rem * var(#{$css-var-prefix}line-height)) +
-        (var(#{$css-var-prefix}form-element-spacing-vertical-large) * 2) +
+        (var(#{$css-var-prefix}spacing) * 2) +
         (var(#{$css-var-prefix}border-width) * 2)
     );
   }
 
   // Adjust padding for large selects with chevron in container
   #{$parent-selector} .large select:not([multiple], [size]):not(.small) {
-    padding-right: calc(
-      var(#{$css-var-prefix}form-element-spacing-horizontal-large) + 1.5rem
-    );
-    padding-left: var(#{$css-var-prefix}form-element-spacing-horizontal-large);
+    padding-right: calc(calc(var(#{$css-var-prefix}spacing) * 2) + 1.5rem);
+    padding-left: calc(var(#{$css-var-prefix}spacing) * 2);
     padding-inline-start: var(
       #{$css-var-prefix}form-element-spacing-horizontal-large
     );
-    padding-inline-end: calc(
-      var(#{$css-var-prefix}form-element-spacing-horizontal-large) + 1.5rem
-    );
+    padding-inline-end: calc(calc(var(#{$css-var-prefix}spacing) * 2) + 1.5rem);
   }
 
   // Special handling for groups

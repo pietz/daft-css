@@ -1,32 +1,20 @@
 @use "sass:map";
-@use "../../settings" as *;
+@use "../settings" as *;
 @use "color-core";
 
-// Simplified Light Theme
+// Simplified Dark Theme
 @mixin theme {
-  // Apply the light color system
-  @include color-core.light-colors();
+  // Apply the dark color system
+  @include color-core.dark-colors();
 
-  color-scheme: light;
+  color-scheme: dark;
 
-  // Typography - use base text color for all headings
+  // Typography
   @if map.get($modules, "content/typography") {
-    #{$css-var-prefix}h1-color: var(#{$css-var-prefix}text);
-    #{$css-var-prefix}h2-color: var(#{$css-var-prefix}text);
-    #{$css-var-prefix}h3-color: var(#{$css-var-prefix}text);
-    #{$css-var-prefix}h4-color: var(#{$css-var-prefix}text);
-    #{$css-var-prefix}h5-color: var(#{$css-var-prefix}text);
-    #{$css-var-prefix}h6-color: var(#{$css-var-prefix}text);
-
     // Highlighted text
     #{$css-var-prefix}mark-background-color: var(
       #{$css-var-prefix}warning-subtle
     );
-    #{$css-var-prefix}mark-color: var(#{$css-var-prefix}text);
-
-    // Inserted & Deleted
-    #{$css-var-prefix}ins-color: var(#{$css-var-prefix}success);
-    #{$css-var-prefix}del-color: var(#{$css-var-prefix}danger);
 
     // Blockquote
     #{$css-var-prefix}blockquote-border-color: var(#{$css-var-prefix}border);
@@ -35,43 +23,8 @@
     );
   }
 
-  // Primary, Secondary, Contrast button variations
-  // Primary
-  #{$css-var-prefix}primary-background: var(#{$css-var-prefix}primary);
-  #{$css-var-prefix}primary-border: var(#{$css-var-prefix}primary);
-  #{$css-var-prefix}primary-hover-background: var(
-    #{$css-var-prefix}primary-hover
-  );
-  #{$css-var-prefix}primary-hover-border: var(#{$css-var-prefix}primary-hover);
+  // Button variations
   #{$css-var-prefix}primary-inverse: var(#{$css-var-prefix}background);
-
-  // Secondary (muted style)
-  #{$css-var-prefix}secondary: var(#{$css-var-prefix}text-muted);
-  #{$css-var-prefix}secondary-background: var(
-    #{$css-var-prefix}background-subtle
-  );
-  #{$css-var-prefix}secondary-border: var(#{$css-var-prefix}border);
-  #{$css-var-prefix}secondary-hover: var(#{$css-var-prefix}text);
-  #{$css-var-prefix}secondary-hover-background: var(
-    #{$css-var-prefix}background-muted
-  );
-  #{$css-var-prefix}secondary-hover-border: var(#{$css-var-prefix}border);
-  #{$css-var-prefix}secondary-focus: var(#{$css-var-prefix}primary-focus);
-  #{$css-var-prefix}secondary-inverse: var(#{$css-var-prefix}text);
-
-  // Contrast (high contrast style)
-  #{$css-var-prefix}contrast: var(#{$css-var-prefix}text);
-  #{$css-var-prefix}contrast-background: var(#{$css-var-prefix}text);
-  #{$css-var-prefix}contrast-border: var(#{$css-var-prefix}text);
-  #{$css-var-prefix}contrast-hover: var(#{$css-var-prefix}text);
-  #{$css-var-prefix}contrast-hover-background: color-mix(
-    in srgb,
-    var(#{$css-var-prefix}text),
-    transparent 10%
-  );
-  #{$css-var-prefix}contrast-hover-border: var(#{$css-var-prefix}text-muted);
-  #{$css-var-prefix}contrast-focus: var(#{$css-var-prefix}primary-focus);
-  #{$css-var-prefix}contrast-inverse: var(#{$css-var-prefix}background);
 
   // Simplified color assignments
   #{$css-var-prefix}color: var(#{$css-var-prefix}text);
@@ -79,8 +32,8 @@
   #{$css-var-prefix}muted-color: var(#{$css-var-prefix}text-muted);
   #{$css-var-prefix}muted-border-color: var(#{$css-var-prefix}border);
 
-  // Box shadow (simplified)
-  #{$css-var-prefix}box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  // Box shadow (slightly stronger in dark mode)
+  #{$css-var-prefix}box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
 
   // Table
   @if map.get($modules, "content/table") {
@@ -103,10 +56,10 @@
   // Form elements
   @if map.get($modules, "forms/basics") {
     #{$css-var-prefix}form-element-background-color: var(
-      #{$css-var-prefix}background
+      #{$css-var-prefix}background-subtle
     );
     #{$css-var-prefix}form-element-selected-background-color: var(
-      #{$css-var-prefix}background-subtle
+      #{$css-var-prefix}background-muted
     );
     #{$css-var-prefix}form-element-border-color: var(#{$css-var-prefix}border);
     #{$css-var-prefix}form-element-color: var(#{$css-var-prefix}text);
@@ -114,7 +67,7 @@
       #{$css-var-prefix}text-muted
     );
     #{$css-var-prefix}form-element-active-background-color: var(
-      #{$css-var-prefix}background
+      #{$css-var-prefix}background-subtle
     );
     #{$css-var-prefix}form-element-active-border-color: var(
       #{$css-var-prefix}primary
@@ -147,8 +100,8 @@
     #{$css-var-prefix}switch-checked-background-color: var(
       #{$css-var-prefix}primary
     );
-    #{$css-var-prefix}switch-color: var(#{$css-var-prefix}background);
-    #{$css-var-prefix}switch-thumb-box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.1);
+    #{$css-var-prefix}switch-color: var(#{$css-var-prefix}background-subtle);
+    #{$css-var-prefix}switch-thumb-box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5);
   }
 
   // Range
@@ -180,24 +133,26 @@
 
   // Card
   @if map.get($modules, "components/card") {
-    #{$css-var-prefix}card-background-color: var(#{$css-var-prefix}background);
+    #{$css-var-prefix}card-background-color: var(
+      #{$css-var-prefix}background-subtle
+    );
     #{$css-var-prefix}card-border-color: var(#{$css-var-prefix}border);
     #{$css-var-prefix}card-box-shadow: var(#{$css-var-prefix}box-shadow);
     #{$css-var-prefix}card-sectioning-background-color: var(
-      #{$css-var-prefix}background-subtle
+      #{$css-var-prefix}background-muted
     );
   }
 
   // Dropdown
   @if map.get($modules, "components/dropdown") and $enable-classes {
     #{$css-var-prefix}dropdown-background-color: var(
-      #{$css-var-prefix}background
+      #{$css-var-prefix}background-subtle
     );
     #{$css-var-prefix}dropdown-border-color: var(#{$css-var-prefix}border);
     #{$css-var-prefix}dropdown-box-shadow: var(#{$css-var-prefix}box-shadow);
     #{$css-var-prefix}dropdown-color: var(#{$css-var-prefix}text);
     #{$css-var-prefix}dropdown-hover-background-color: var(
-      #{$css-var-prefix}background-subtle
+      #{$css-var-prefix}background-muted
     );
   }
 
@@ -208,7 +163,7 @@
 
   // Modal
   @if map.get($modules, "components/modal") {
-    #{$css-var-prefix}modal-overlay-background-color: rgba(0, 0, 0, 0.5);
+    #{$css-var-prefix}modal-overlay-background-color: rgba(0, 0, 0, 0.75);
   }
 
   // Progress
@@ -247,16 +202,4 @@
 
   // Additional simplifications
   #{$css-var-prefix}text-selection-color: var(#{$css-var-prefix}primary-subtle);
-  #{$css-var-prefix}primary-underline: var(#{$css-var-prefix}primary);
-  #{$css-var-prefix}primary-hover-underline: var(
-    #{$css-var-prefix}primary-hover
-  );
-  #{$css-var-prefix}secondary-underline: var(#{$css-var-prefix}secondary);
-  #{$css-var-prefix}secondary-hover-underline: var(
-    #{$css-var-prefix}secondary-hover
-  );
-  #{$css-var-prefix}contrast-underline: var(#{$css-var-prefix}contrast);
-  #{$css-var-prefix}contrast-hover-underline: var(
-    #{$css-var-prefix}contrast-hover
-  );
 }

@@ -85,7 +85,7 @@ $modules: () !default;
 $modules: map.merge(
   (
     // Theme
-    "themes/default": true,
+    "theme": true,
 
     // Layout
     "layout/document": true,

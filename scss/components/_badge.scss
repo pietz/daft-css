@@ -27,10 +27,8 @@
     line-height: 1.25;
 
     // Default colors (uses primary scheme like buttons)
-    #{$css-var-prefix}badge-background-color: var(
-      #{$css-var-prefix}primary-background
-    );
-    #{$css-var-prefix}badge-color: var(#{$css-var-prefix}primary-inverse);
+    #{$css-var-prefix}badge-background-color: var(#{$css-var-prefix}primary);
+    #{$css-var-prefix}badge-color: var(#{$css-var-prefix}background);
     #{$css-var-prefix}badge-border-color: transparent;
 
     // Ensure inline alignment
@@ -49,24 +47,20 @@
 
     // Color variants - using Pico's color system
     &.primary {
-      #{$css-var-prefix}badge-background-color: var(
-        #{$css-var-prefix}primary-background
-      );
-      #{$css-var-prefix}badge-color: var(#{$css-var-prefix}primary-inverse);
+      #{$css-var-prefix}badge-background-color: var(#{$css-var-prefix}primary);
+      #{$css-var-prefix}badge-color: var(#{$css-var-prefix}background);
     }
 
     &.secondary {
       #{$css-var-prefix}badge-background-color: var(
-        #{$css-var-prefix}secondary-background
+        #{$css-var-prefix}background-subtle
       );
-      #{$css-var-prefix}badge-color: var(#{$css-var-prefix}secondary-inverse);
+      #{$css-var-prefix}badge-color: var(#{$css-var-prefix}text);
     }
 
     &.contrast {
-      #{$css-var-prefix}badge-background-color: var(
-        #{$css-var-prefix}contrast-background
-      );
-      #{$css-var-prefix}badge-color: var(#{$css-var-prefix}contrast-inverse);
+      #{$css-var-prefix}badge-background-color: var(#{$css-var-prefix}text);
+      #{$css-var-prefix}badge-color: var(#{$css-var-prefix}background);
     }
 
     // Outline variants
@@ -81,15 +75,15 @@
       }
 
       &.secondary {
-        #{$css-var-prefix}badge-color: var(#{$css-var-prefix}secondary-inverse);
+        #{$css-var-prefix}badge-color: var(#{$css-var-prefix}text);
         #{$css-var-prefix}badge-border-color: var(
           #{$css-var-prefix}form-element-border-color
         );
       }
 
       &.contrast {
-        #{$css-var-prefix}badge-color: var(#{$css-var-prefix}contrast);
-        #{$css-var-prefix}badge-border-color: var(#{$css-var-prefix}contrast);
+        #{$css-var-prefix}badge-color: var(#{$css-var-prefix}text);
+        #{$css-var-prefix}badge-border-color: var(#{$css-var-prefix}text);
       }
     }
   }

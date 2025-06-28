@@ -1,0 +1,71 @@
+@use "sass:map";
+@use "../settings" as *;
+
+@if map.get($modules, "components/status") {
+  /**
+   * Status indicator (<span class="status">)
+   */
+
+  #{$parent-selector} .status {
+    // Display
+    display: inline-block;
+
+    // Size (default)
+    width: 8px;
+    height: 8px;
+
+    // Appearance
+    border-radius: 50%;
+    background-color: var(#{$css-var-prefix}status-color);
+
+    // Default color (subtle gray for idle state)
+    #{$css-var-prefix}status-color: var(#{$css-var-prefix}text-subtle);
+    margin-right: 0.375rem;
+
+    // Ensure proper inline alignment
+    vertical-align: middle;
+
+    // Size variants
+    &.small {
+      width: 6px;
+      height: 6px;
+      margin-right: 0.25rem;
+    }
+
+    &.large {
+      width: 10px;
+      height: 10px;
+      margin-right: 0.5rem;
+    }
+
+    // Color variants using existing semantic colors
+    &.success {
+      #{$css-var-prefix}status-color: var(#{$css-var-prefix}success);
+    }
+
+    &.danger {
+      #{$css-var-prefix}status-color: var(#{$css-var-prefix}danger);
+    }
+
+    &.warning {
+      #{$css-var-prefix}status-color: var(#{$css-var-prefix}warning);
+    }
+
+    // Optional pulsing animation for active states
+    &.pulse {
+      animation: status-pulse 2s infinite;
+    }
+
+    @keyframes status-pulse {
+      0% {
+        box-shadow: 0 0 0 0 var(#{$css-var-prefix}status-color);
+      }
+      70% {
+        box-shadow: 0 0 0 4px transparent;
+      }
+      100% {
+        box-shadow: 0 0 0 0 transparent;
+      }
+    }
+  }
+}

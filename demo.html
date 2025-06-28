@@ -5,285 +5,470 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <title>Component Demos • DaftCSS</title>
-    <meta name="description" content="Real-world component combinations using DaftCSS">
+    <title>Analytics Dashboard • DaftCSS</title>
+    <meta name="description" content="SaaS Analytics Dashboard built with DaftCSS">
     <link rel="stylesheet" href="css/daft.min.css">
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="container">
-        <hgroup>
-            <h1>DaftCSS Component Demos</h1>
-            <p>Real-world UI blocks combining multiple components</p>
-        </hgroup>
-    </header>
+    <!-- Navigation -->
+    <nav class="container">
+        <ul>
+            <li><strong>📊 DataFlow</strong></li>
+        </ul>
+        <ul>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#analytics">Analytics</a></li>
+            <li><a href="#customers">Customers</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#team">Team</a></li>
+            <li>
+                <button type="button" class="outline small" data-tooltip="Quick search" data-placement="bottom" onclick="document.getElementById('search-modal').showModal()">
+                    🔍 Search
+                </button>
+            </li>
+            <li>
+                <a href="#notifications" role="button" class="outline small">
+                    🔔 <sup><span class="badge small contrast">3</span></sup>
+                </a>
+            </li>
+            <li>
+                <details class="dropdown">
+                    <summary>
+                        <span class="badge secondary">👤 Sarah Chen</span>
+                    </summary>
+                    <ul>
+                        <li><a href="#profile">My Profile</a></li>
+                        <li><a href="#settings">Settings</a></li>
+                        <li><a href="#billing">Billing</a></li>
+                        <li><hr></li>
+                        <li><a href="#logout">Sign Out</a></li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </nav>
 
-    <!-- Main -->
+    <hr>
+
+    <!-- Main Content -->
     <main class="container">
+        <!-- Dashboard Header -->
+        <header>
+            <div class="grid">
+                <hgroup>
+                    <h1>Analytics Dashboard</h1>
+                    <p>Welcome back, Sarah! Here's what's happening with your business today.</p>
+                </hgroup>
+                <div>
+                    <fieldset role="group" class="small">
+                        <input type="date" value="2024-01-15">
+                        <input type="date" value="2024-01-22">
+                        <button type="button">Apply</button>
+                    </fieldset>
+                </div>
+            </div>
+        </header>
 
-        <!-- Row 1: Login + Task Management + Stats -->
-        <div class="grid">
-            <!-- Login Card -->
-            <article class="span-2">
-                <h3>Welcome Back</h3>
-                <form>
-                    <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
-                    <input type="password" name="password" placeholder="Password" aria-label="Password" required>
-                    <label for="remember">
-                        <input type="checkbox" id="remember" name="remember" role="switch">
-                        Remember me
-                    </label>
-                    <button type="submit" class="contrast">Sign In</button>
-                    <small>Don't have an account? <a href="#" class="secondary">Sign up</a></small>
-                </form>
-            </article>
-
-            <!-- Task Management -->
-            <article class="span-3">
-                <h4>Task Management</h4>
-                <div>
-                    <div class="grid">
-                        <div>
-                            <label>
-                                <input type="checkbox" name="task1">
-                                <strong>Review pull request #142</strong>
-                            </label>
-                        </div>
-                        <div>
-                            <span class="badge small secondary">Medium</span>
-                            <small>Due in 2 days</small>
-                        </div>
-                    </div>
-                    <details>
-                        <summary>Task details</summary>
-                        <p>Review the updated authentication flow implementation and provide feedback on security
-                            considerations.</p>
-                    </details>
-                </div>
-                <hr>
-                <div>
-                    <div class="grid">
-                        <div>
-                            <label>
-                                <input type="checkbox" name="task2" checked>
-                                <strong><s>Update documentation</s></strong>
-                            </label>
-                        </div>
-                        <div>
-                            <span class="badge small">Completed</span>
-                            <small>1 hour ago</small>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div>
-                    <div class="grid">
-                        <div>
-                            <label>
-                                <input type="checkbox" name="task3">
-                                <strong>Fix responsive layout bug</strong>
-                            </label>
-                        </div>
-                        <div>
-                            <span class="badge small contrast">High</span>
-                            <small>Due today</small>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div>
-                    <div class="grid">
-                        <div>
-                            <label>
-                                <input type="checkbox" name="task4">
-                                <strong>Deploy to staging</strong>
-                            </label>
-                        </div>
-                        <div>
-                            <span class="badge small secondary">Low</span>
-                            <small>Due next week</small>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Stacked Stats -->
-            <div>
+        <!-- KPI Cards -->
+        <section>
+            <div class="grid">
                 <article>
-                    <h5>Total Revenue</h5>
-                    <p style="font-size: 2rem; margin: 0;"><strong>$45,231</strong></p>
+                    <header>
+                        <small>Monthly Revenue</small>
+                    </header>
+                    <h2>$124,563</h2>
                     <p>
-                        <span class="badge small">+12.5%</span>
+                        <span class="badge small">↑ 12.5%</span>
                         <small>vs last month</small>
                     </p>
+                    <progress value="78" max="100"></progress>
+                    <small>78% of monthly goal</small>
                 </article>
 
                 <article>
-                    <h5>Active Users</h5>
-                    <p style="font-size: 2rem; margin: 0;"><strong>2,842</strong></p>
+                    <header>
+                        <small>Active Users</small>
+                    </header>
+                    <h2>8,492</h2>
                     <p>
-                        <span class="badge small secondary">+5.2%</span>
+                        <span class="badge small secondary">↑ 5.2%</span>
                         <small>vs last week</small>
                     </p>
+                    <details>
+                        <summary>View breakdown</summary>
+                        <small>Free: 6,234 | Pro: 1,958 | Enterprise: 300</small>
+                    </details>
+                </article>
+
+                <article>
+                    <header>
+                        <small>Conversion Rate</small>
+                    </header>
+                    <h2>3.42%</h2>
+                    <p>
+                        <span class="badge small outline">→ 0.0%</span>
+                        <small>no change</small>
+                    </p>
+                    <meter value="3.42" min="0" max="10" optimum="5">3.42%</meter>
+                </article>
+
+                <article>
+                    <header>
+                        <small>Churn Rate</small>
+                    </header>
+                    <h2>2.1%</h2>
+                    <p>
+                        <span class="badge small contrast">↓ 0.3%</span>
+                        <small>improvement</small>
+                    </p>
+                    <small aria-invalid="false">Within healthy range</small>
                 </article>
             </div>
-        </div>
+        </section>
 
-        <!-- Row 2: User Profile + Search + Notifications -->
-        <div class="grid">
-            <!-- User Profile -->
-            <article>
-                <h4>Sarah Chen <span class="badge small contrast">Pro</span></h4>
-                <small>Senior Frontend Developer</small>
-                <blockquote>
-                    "Building beautiful, accessible web experiences with modern technologies."
-                </blockquote>
-                <div class="grid">
-                    <button class="small">Message</button>
-                    <button class="large secondary">Follow</button>
+        <!-- Main Dashboard Content -->
+        <section>
+            <div class="grid">
+                <!-- Analytics Chart Area -->
+                <div class="span-3">
+                    <article>
+                        <header>
+                            <h3>Revenue Analytics</h3>
+                            <div role="group" class="small">
+                                <button type="button" class="outline">Day</button>
+                                <button type="button">Week</button>
+                                <button type="button" class="outline">Month</button>
+                                <button type="button" class="outline">Year</button>
+                            </div>
+                        </header>
+                        <blockquote>
+                            <h4>📈 Interactive Chart Visualization</h4>
+                            <p>Revenue trend over selected period would be displayed here</p>
+                        </blockquote>
+                        <footer>
+                            <small>Last updated: <time datetime="2024-01-22T15:30">3 minutes ago</time></small>
+                        </footer>
+                    </article>
+
+                    <!-- Recent Transactions -->
+                    <article>
+                        <header>
+                            <h4>Recent Transactions</h4>
+                            <a href="#" role="button" class="small secondary">View All</a>
+                        </header>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Product</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Acme Corp</strong></td>
+                                    <td>Enterprise Plan</td>
+                                    <td><mark>$4,999</mark></td>
+                                    <td><span class="badge small">Completed</span></td>
+                                    <td><small>2 hours ago</small></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TechStart Inc</strong></td>
+                                    <td>Pro Plan</td>
+                                    <td>$299</td>
+                                    <td><span class="badge small">Completed</span></td>
+                                    <td><small>5 hours ago</small></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Design Studio</strong></td>
+                                    <td>Pro Plan</td>
+                                    <td>$299</td>
+                                    <td><span class="badge small secondary">Pending</span></td>
+                                    <td><small>8 hours ago</small></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>StartupXYZ</strong></td>
+                                    <td>Basic Plan</td>
+                                    <td>$99</td>
+                                    <td><span class="badge small contrast">Failed</span></td>
+                                    <td><small>1 day ago</small></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
                 </div>
-            </article>
 
-            <!-- Search Interface -->
-            <article>
-                <h4>Search</h4>
-                <form>
-                    <fieldset role="group">
-                        <input type="search" name="search" placeholder="Search products...">
-                        <button type="submit">Search</button>
+                <!-- Sidebar -->
+                <div>
+                    <!-- Activity Feed -->
+                    <article>
+                        <header>
+                            <h4>Activity Feed</h4>
+                        </header>
+                        <dl>
+                            <dt><strong>New user signup</strong> <small>2m ago</small></dt>
+                            <dd>john.doe@example.com joined</dd>
+                            
+                            <dt><strong>Payment received</strong> <small>5h ago</small></dt>
+                            <dd>$299 from TechStart Inc</dd>
+                            
+                            <dt><strong>Support ticket</strong> <small>1h ago</small></dt>
+                            <dd>Urgent: Login issues</dd>
+                            
+                            <dt><strong>Server deployment</strong> <small>3h ago</small></dt>
+                            <dd>v2.4.1 deployed successfully</dd>
+                        </dl>
+                    </article>
+
+                    <!-- Quick Actions -->
+                    <article>
+                        <header>
+                            <h4>Quick Actions</h4>
+                        </header>
+                        <button type="button" class="contrast">📧 Send Campaign</button>
+                        <button type="button" class="secondary">📊 Export Report</button>
+                        <button type="button" class="outline">👥 Invite Team Member</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secondary Features -->
+        <section>
+            <div class="grid">
+                <!-- Team Performance -->
+                <article>
+                    <header>
+                        <h3>Team Performance</h3>
+                    </header>
+                    <div class="grid">
+                        <div>
+                            <strong>Alex Johnson</strong>
+                            <p><small>Sales Lead</small></p>
+                            <p>
+                                <span class="badge small">152 deals</span>
+                                <span class="badge small secondary">$45.2K</span>
+                            </p>
+                            <progress value="95" max="100"></progress>
+                        </div>
+                        <div>
+                            <strong>Maya Patel</strong>
+                            <p><small>Account Manager</small></p>
+                            <p>
+                                <span class="badge small">98 deals</span>
+                                <span class="badge small secondary">$32.8K</span>
+                            </p>
+                            <progress value="78" max="100"></progress>
+                        </div>
+                        <div>
+                            <strong>Chris Wong</strong>
+                            <p><small>Sales Rep</small></p>
+                            <p>
+                                <span class="badge small">67 deals</span>
+                                <span class="badge small secondary">$28.4K</span>
+                            </p>
+                            <progress value="65" max="100"></progress>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- System Health -->
+                <article>
+                    <header>
+                        <h3>System Health</h3>
+                    </header>
+                    <dl>
+                        <dt><span class="status success"></span>API Server</dt>
+                        <dd>
+                            <progress value="15" max="100"></progress>
+                            <small>CPU: 15% | Memory: 2.1GB/8GB</small>
+                        </dd>
+                        <dt><span class="status warning"></span>Database</dt>
+                        <dd>
+                            <progress value="72" max="100"></progress>
+                            <small>CPU: 72% | Connections: 142/200</small>
+                        </dd>
+                        <dt><span class="status success"></span>CDN</dt>
+                        <dd>
+                            <progress value="8" max="100"></progress>
+                            <small>Bandwidth: 1.2TB/15TB</small>
+                        </dd>
+                    </dl>
+                </article>
+
+                <!-- Settings Panel -->
+                <article>
+                    <fieldset>
+                        <legend>Notification Settings</legend>
+                        <label>
+                            <input type="checkbox" role="switch" checked>
+                            Email notifications
+                        </label>
+                        <label>
+                            <input type="checkbox" role="switch" checked>
+                            Desktop notifications
+                        </label>
+                        <label>
+                            <input type="checkbox" role="switch">
+                            SMS alerts
+                        </label>
+                        <label>
+                            <input type="checkbox" role="switch" checked>
+                            Weekly reports
+                        </label>
                     </fieldset>
-                </form>
-                <hr>
-                <h5>Results</h5>
-                <p><mark>Wireless</mark> Headphones Pro <small>- $89.99</small></p>
-                <p><mark>Wireless</mark> Mouse <small>- $29.99</small></p>
-                <p><mark>Wireless</mark> Keyboard <small>- $59.99</small></p>
-            </article>
-
-            <!-- Notifications -->
-            <article>
-                <h4>Notifications</h4>
-                <div class="contrast"
-                    style="padding: var(--daft-spacing); border-radius: var(--daft-border-radius); margin-bottom: var(--daft-spacing);">
-                    <strong>System Update Available</strong>
-                    <p>Version 2.1.0 includes important security patches.</p>
-                    <progress value="75" max="100"></progress>
-                    <small>Installing... 75% complete</small>
-                </div>
-                <div>
-                    <strong>New team member</strong>
-                    <p>Maya Patel joined as Backend Developer.</p>
-                    <button class="small secondary">View Profile</button>
-                </div>
-            </article>
-        </div>
-
-        <!-- Row 3: Product Cards + Settings + Discussion -->
-        <div class="grid">
-            <!-- Product Cards -->
-            <div>
-                <article>
-                    <img src="https://via.placeholder.com/400x300" alt="Product image">
-                    <h5>Wireless Headphones</h5>
-                    <p>
-                        <strong>$89.99</strong> <del>$129.99</del>
-                        <span class="badge small secondary">Sale</span>
-                    </p>
-                    <button class="small">Add to Cart</button>
-                </article>
-
-                <article>
-                    <img src="https://via.placeholder.com/400x300" alt="Product image">
-                    <h5>Smart Watch Pro</h5>
-                    <p>
-                        <strong>$349.00</strong>
-                        <span class="badge small contrast">Limited</span>
-                    </p>
-                    <button class="small secondary">Pre-order</button>
+                    <button type="button" class="small">Save Settings</button>
                 </article>
             </div>
+        </section>
 
-            <!-- Settings Panel -->
+        <!-- Support Queue -->
+        <section>
             <article>
-                <fieldset>
-                    <legend>Notification Preferences</legend>
-
-                    <label for="email-notifications">
-                        <input type="checkbox" id="email-notifications" name="email-notifications" role="switch"
-                            checked>
-                        Email notifications
-                        <small>Receive updates about your account via email</small>
-                    </label>
-
-                    <label for="push-notifications">
-                        <input type="checkbox" id="push-notifications" name="push-notifications" role="switch">
-                        Push notifications
-                        <small>Get instant updates on your device</small>
-                    </label>
-
-                    <label for="marketing">
-                        <input type="checkbox" id="marketing" name="marketing" role="switch">
-                        Marketing emails
-                        <small>Receive news and special offers</small>
-                    </label>
-                </fieldset>
-                <button>Save Preferences</button>
-            </article>
-
-            <!-- Comments -->
-            <article>
-                <div>
-                    <strong>Jordan Williams</strong> <small>• 2 hours ago</small>
-                    <p>This new feature is exactly what we needed! The implementation is clean and the performance
-                        improvements are noticeable.</p>
-                    <div class="grid">
-                        <button class="outline small">Reply</button>
-                        <button class="small">👍 12</button>
+                <header>
+                    <h3>Support Queue</h3>
+                    <span class="badge contrast">4 Open</span>
+                </header>
+                <div class="grid">
+                    <div>
+                        <details>
+                            <summary>
+                                <strong>#1234 - Login Issues</strong>
+                                <span class="badge small contrast">High</span>
+                            </summary>
+                            <p>Customer unable to access dashboard after password reset. Tried clearing cache...</p>
+                            <div role="group" class="small">
+                                <button type="button">Assign to Me</button>
+                                <button type="button" class="secondary">View Details</button>
+                            </div>
+                        </details>
+                    </div>
+                    <div>
+                        <details>
+                            <summary>
+                                <strong>#1235 - Feature Request</strong>
+                                <span class="badge small secondary">Medium</span>
+                            </summary>
+                            <p>Would like ability to export data in CSV format for quarterly reports...</p>
+                            <div role="group" class="small">
+                                <button type="button">Assign to Me</button>
+                                <button type="button" class="secondary">View Details</button>
+                            </div>
+                        </details>
+                    </div>
+                    <div>
+                        <details>
+                            <summary>
+                                <strong>#1236 - Billing Question</strong>
+                                <span class="badge small">Low</span>
+                            </summary>
+                            <p>Question about prorated billing when upgrading mid-cycle...</p>
+                            <div role="group" class="small">
+                                <button type="button">Assign to Me</button>
+                                <button type="button" class="secondary">View Details</button>
+                            </div>
+                        </details>
                     </div>
                 </div>
-                <hr>
-                <div>
-                    <strong>Morgan Lee</strong> <small>• 45 minutes ago</small>
-                    <p>Great work on this update. The documentation is very helpful.</p>
-                    <div class="grid">
-                        <button class="outline small">Reply</button>
-                        <button class="small">👍 5</button>
-                    </div>
-                </div>
             </article>
-        </div>
-
-        <!-- Row 5: Remaining Stats + File Upload -->
-        <div class="grid">
-            <!-- Remaining Stats -->
-            <article>
-                <h5>Conversion Rate</h5>
-                <p style="font-size: 2rem; margin: 0;"><strong>3.24%</strong></p>
-                <p>
-                    <span class="badge small outline">-0.1%</span>
-                    <small>vs yesterday</small>
-                </p>
-            </article>
-
-            <!-- File Upload -->
-            <article>
-                <h4>Upload Document</h4>
-                <input type="file" id="file-upload" name="file-upload">
-                <progress value="60" max="100"></progress>
-                <p>
-                    <small aria-invalid="false">Uploading: report.pdf (60%)</small>
-                </p>
-                <button class="secondary small">Cancel Upload</button>
-            </article>
-        </div>
-
+        </section>
     </main>
 
     <!-- Footer -->
     <footer class="container">
-        <small>Component demonstrations using <a href="https://picocss.com">DaftCSS</a></small>
+        <hr>
+        <div class="grid">
+            <div>
+                <p>
+                    <small>
+                        <span class="status success small"></span>All systems operational
+                        • Version 2.4.1
+                        • <a href="#changelog">Changelog</a>
+                    </small>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <small>
+                        <a href="#docs">Documentation</a>
+                        • <a href="#api">API</a>
+                        • <a href="#status">Status</a>
+                        • <a href="#support">Support</a>
+                    </small>
+                </p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Modals -->
+    <!-- Search Modal -->
+    <dialog id="search-modal">
+        <article>
+            <header>
+                <button aria-label="Close" rel="prev" onclick="document.getElementById('search-modal').close()">×</button>
+                <h3>Search</h3>
+            </header>
+            <form>
+                <input type="search" placeholder="Search customers, transactions, or features..." autofocus>
+                <details open>
+                    <summary>Recent Searches</summary>
+                    <ul>
+                        <li><a href="#">Enterprise customers</a></li>
+                        <li><a href="#">Failed transactions</a></li>
+                        <li><a href="#">Team settings</a></li>
+                    </ul>
+                </details>
+            </form>
+            <footer>
+                <button type="button" class="secondary" onclick="document.getElementById('search-modal').close()">Cancel</button>
+                <button type="submit">Search</button>
+            </footer>
+        </article>
+    </dialog>
+
+    <!-- Export Modal -->
+    <dialog id="export-modal">
+        <article>
+            <header>
+                <button aria-label="Close" rel="prev" onclick="document.getElementById('export-modal').close()">×</button>
+                <h3>Export Data</h3>
+            </header>
+            <form>
+                <label>
+                    Export Format
+                    <select required>
+                        <option value="">Select format...</option>
+                        <option value="csv">CSV</option>
+                        <option value="xlsx">Excel (XLSX)</option>
+                        <option value="pdf">PDF Report</option>
+                        <option value="json">JSON</option>
+                    </select>
+                </label>
+                <fieldset>
+                    <legend>Date Range</legend>
+                    <div class="grid">
+                        <input type="date" placeholder="Start date">
+                        <input type="date" placeholder="End date">
+                    </div>
+                </fieldset>
+                <label>
+                    <input type="checkbox" checked>
+                    Include customer details
+                </label>
+                <label>
+                    <input type="checkbox" checked>
+                    Include transaction history
+                </label>
+            </form>
+            <footer>
+                <button type="button" class="secondary" onclick="document.getElementById('export-modal').close()">Cancel</button>
+                <button type="submit">Export</button>
+            </footer>
+        </article>
+    </dialog>
 </body>
 
 </html>

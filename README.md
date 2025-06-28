@@ -18,6 +18,7 @@ DaftCSS is a fork of the excellent [PicoCSS](https://github.com/picocss/pico) fr
 - [x] **Element Sizing Utilities** - Added `.small` and `.large` classes for buttons, form elements and forms
 - [x] **Grid Column Spanning** - `.span-2`, `.span-3`, and `.span-4` make grid items span multiple columns
 - [x] **Badge Component** - `.badge` component with size and color variants `<span class="badge">Badge</span>`
+- [x] **Status Indicators** - `.status` component for showing online/offline states `<span class="status success"></span>`
 
 ### What's different?
 

@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "../settings" as *;
+@use "../helpers/mixins" as *;
 
 @if map.get($modules, "forms/basics") {
   // Helper
@@ -170,31 +171,7 @@
   #{$parent-selector} input,
   #{$parent-selector} select,
   #{$parent-selector} textarea {
-    #{$css-var-prefix}background-color: var(
-      #{$css-var-prefix}form-element-background-color
-    );
-    #{$css-var-prefix}border-color: var(
-      #{$css-var-prefix}form-element-border-color
-    );
-    #{$css-var-prefix}color: var(#{$css-var-prefix}form-element-color);
-    #{$css-var-prefix}box-shadow: none;
-    border: var(#{$css-var-prefix}border-width)
-      solid
-      var(#{$css-var-prefix}border-color);
-    border-radius: var(#{$css-var-prefix}border-radius);
-    outline: none;
-    background-color: var(#{$css-var-prefix}background-color);
-    box-shadow: var(#{$css-var-prefix}box-shadow);
-    color: var(#{$css-var-prefix}color);
-    font-weight: var(#{$css-var-prefix}font-weight);
-
-    @if $enable-transitions {
-      transition:
-        background-color var(#{$css-var-prefix}transition),
-        border-color var(#{$css-var-prefix}transition),
-        color var(#{$css-var-prefix}transition),
-        box-shadow var(#{$css-var-prefix}transition);
-    }
+    @include interactive-element-base;
   }
 
   // Active & Focus
@@ -244,11 +221,7 @@
     ),
   #{$parent-selector} :where(select, textarea):not([readonly]) {
     &:focus {
-      #{$css-var-prefix}box-shadow: 0
-        0
-        0
-        var(#{$css-var-prefix}outline-width)
-        var(#{$css-var-prefix}form-element-focus-color);
+      @include interactive-element-focus;
     }
   }
 
@@ -265,8 +238,7 @@
       select,
       textarea
     ) {
-    opacity: var(#{$css-var-prefix}form-element-disabled-opacity);
-    pointer-events: none;
+    @include interactive-element-disabled;
   }
 
   #{$parent-selector} label[aria-disabled="true"] input[disabled] {

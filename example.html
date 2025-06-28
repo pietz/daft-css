@@ -1,209 +1,707 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="light dark">
-    <title>Simplified Color System • DaftCSS</title>
-    <meta name="description" content="Demo of the new simplified color system">
-    <link rel="stylesheet" href="css/daft.min.css">
-    
-    <style>
-        /* Custom theme colors - users can override these */
-        .theme-default {
-            --daft-theme: #2060df;
-        }
-        
-        .theme-green {
-            --daft-theme: #10b981;
-        }
-        
-        .theme-purple {
-            --daft-theme: #8b5cf6;
-        }
-        
-        .theme-orange {
-            --daft-theme: #f97316;
-        }
-        
-        .theme-picker {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        
-        .color-input-group {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .color-preview {
-            width: 3rem;
-            height: 3rem;
-            border-radius: var(--daft-border-radius);
-            background-color: var(--daft-primary);
-            border: 2px solid var(--daft-border);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Daft CSS - Comprehensive Example</title>
+  <link rel="stylesheet" href="css/daft.css">
+  <style>
+    /* Demo helpers */
+    .demo-section {
+      margin-bottom: 4rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--daft-border-color);
+    }
+    .demo-section:last-child {
+      border-bottom: none;
+    }
+    .demo-code {
+      background: var(--daft-code-background-color);
+      padding: 0.5rem;
+      border-radius: var(--daft-border-radius);
+      margin: 1rem 0;
+      font-size: 0.875em;
+    }
+    .demo-grid-item {
+      background: var(--daft-secondary-background);
+      padding: 1rem;
+      text-align: center;
+      border-radius: var(--daft-border-radius);
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Header -->
-    <header class="container">
-        <hgroup>
-            <h1>DaftCSS Simplified Color System</h1>
-            <p>Change the entire theme with just one CSS variable!</p>
-        </hgroup>
-        
-        <!-- Theme Picker -->
-        <section class="theme-picker">
-            <button onclick="document.body.className = 'theme-default'">Default Blue</button>
-            <button onclick="document.body.className = 'theme-green'" class="secondary">Green Theme</button>
-            <button onclick="document.body.className = 'theme-purple'" class="secondary">Purple Theme</button>
-            <button onclick="document.body.className = 'theme-orange'" class="secondary">Orange Theme</button>
-        </section>
-        
-        <!-- Custom Color Controls -->
-        <details>
-            <summary>Custom Color Controls</summary>
-            <div class="grid">
-                <div class="color-input-group">
-                    <label for="color-picker">Choose any color:</label>
-                    <input type="color" id="color-picker" value="#2060df" 
-                           oninput="updateTheme()">
-                    <input type="text" id="color-value" value="#2060df" 
-                           placeholder="Enter any color (hex, rgb, hsl...)"
-                           oninput="updateTheme()">
-                </div>
-                <div class="color-preview"></div>
-            </div>
-            <p><small>Try different formats: #ff6b6b, rgb(255, 107, 107), hsl(0, 100%, 71%), or even named colors like "tomato"!</small></p>
-        </details>
+  <main class="container">
+    <header>
+      <hgroup>
+        <h1>Daft CSS Framework</h1>
+        <p>Comprehensive example showcasing all components and elements</p>
+      </hgroup>
     </header>
 
-    <!-- Main -->
-    <main class="container">
-        <!-- Components Preview -->
-        <section id="components">
-            <h2>Components with Your Theme</h2>
-            
-            <!-- Buttons -->
-            <h3>Buttons</h3>
-            <div class="grid">
-                <button>Primary Button</button>
-                <button class="secondary">Secondary Button</button>
-                <button class="contrast">Contrast Button</button>
-                <button class="outline">Outline Button</button>
-            </div>
-            
-            <!-- Form Elements -->
-            <h3>Form Elements</h3>
-            <form>
-                <div class="grid">
-                    <input type="text" placeholder="Text input" aria-label="Text input">
-                    <select aria-label="Select">
-                        <option>Select option</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                    </select>
-                </div>
-                <textarea placeholder="Textarea" aria-label="Textarea"></textarea>
-                <label>
-                    <input type="checkbox" role="switch">
-                    Toggle switch
-                </label>
-                <progress value="70" max="100"></progress>
-            </form>
-            
-            <!-- Cards -->
-            <h3>Cards</h3>
-            <article>
-                <header>
-                    <h4>Card Title</h4>
-                </header>
-                <p>This card automatically adapts to your chosen theme color. The borders, shadows, and backgrounds all adjust based on the primary color.</p>
-                <footer>
-                    <button class="secondary">Action</button>
-                </footer>
-            </article>
-            
-            <!-- Alerts -->
-            <h3>Semantic Colors</h3>
-            <div style="padding: 1rem; background: var(--daft-success-subtle); color: var(--daft-success); border-radius: var(--daft-border-radius); margin-bottom: 1rem;">
-                Success message with semantic color
-            </div>
-            <div style="padding: 1rem; background: var(--daft-danger-subtle); color: var(--daft-danger); border-radius: var(--daft-border-radius); margin-bottom: 1rem;">
-                Error message with semantic color
-            </div>
-            <div style="padding: 1rem; background: var(--daft-warning-subtle); color: var(--daft-warning); border-radius: var(--daft-border-radius);">
-                Warning message with semantic color
-            </div>
-        </section>
+    <!-- Layout Components -->
+    <section class="demo-section" id="layout">
+      <h2>Layout Components</h2>
+      
+      <h3>Container Types</h3>
+      <p>This page uses <code>.container</code> for responsive max-width. Also available: <code>.container-fluid</code> for full width.</p>
+      
+      <h3>Grid System</h3>
+      <div class="grid">
+        <article>Default Grid Item</article>
+        <article>Default Grid Item</article>
+        <article>Default Grid Item</article>
+      </div>
+      
+      <div class="grid">
+        <article class="span-2">Span 2 Columns</article>
+        <article>Normal Column</article>
+      </div>
+      
+      <div class="grid">
+        <article class="span-3">Span 3 Columns</article>
+        <article>Normal Column</article>
+      </div>
+      
+      <div class="grid">
+        <article class="span-4">Span 4 Columns (Full Width)</article>
+        <article>Normal Column</article>
+      </div>
+      
+      <div class="grid">
+        <article>
+          <div class="grid">
+            <article>Nested 1</article>
+            <article>Nested 2</article>
+          </div>
+        </article>
+        <article>Regular item with longer content</article>
+      </div>
+    </section>
+
+    <!-- Typography & Text Elements -->
+    <section class="demo-section" id="typography">
+      <h2>Typography & Text Elements</h2>
+      
+      <div class="grid">
+        <div>
+          <h3>Headings</h3>
+      <h1>Heading Level 1</h1>
+      <h2>Heading Level 2</h2>
+      <h3>Heading Level 3</h3>
+      <h4>Heading Level 4</h4>
+      <h5>Heading Level 5</h5>
+      <h6>Heading Level 6</h6>
+          
+          <h3>Heading Groups</h3>
+          <hgroup>
+            <h3>Main Heading in Group</h3>
+            <p>Subtitle or description text in heading group</p>
+          </hgroup>
+        </div>
         
-        <!-- Implementation Guide -->
-        <section id="implementation">
-            <h2>How It Works</h2>
-            <p>The simplified color system uses just one CSS variable to control the entire theme:</p>
-            <pre><code>:root {
-    --daft-theme: #2060df;  /* Any CSS color! */
+        <div>
+          <h3>Text Formatting</h3>
+      <p>This is a normal paragraph with <strong>strong text</strong> and <b>bold text</b>.</p>
+      <p>Here we have <em>emphasized text</em> and <i>italic text</i>.</p>
+      <p>You can <mark>highlight text</mark> with the mark element.</p>
+      <p>Show <del>deleted text</del> and <ins>inserted text</ins>.</p>
+      <p>Example of <sub>subscript</sub> and <sup>superscript</sup>.</p>
+      <p><small>This is small text for fine print.</small></p>
+      <p>Use <abbr title="HyperText Markup Language">HTML</abbr> abbreviations with titles.</p>
+      <p>Variables in math: <var>x</var> + <var>y</var> = <var>z</var></p>
+          
+          <h3>Links</h3>
+          <p>
+            This is an <a href="#">inline link</a> and 
+            <span role="link" tabindex="0">this acts like a link</span>.
+          </p>
+        </div>
+      </div>
+      
+      <div class="grid">
+        <div>
+          <h3>Lists</h3>
+      <h4>Unordered List</h4>
+      <ul>
+        <li>First item</li>
+        <li>Second item
+          <ul>
+            <li>Nested item 1</li>
+            <li>Nested item 2</li>
+          </ul>
+        </li>
+        <li>Third item</li>
+      </ul>
+      
+      <h4>Ordered List</h4>
+      <ol>
+        <li>First step</li>
+        <li>Second step
+          <ol>
+            <li>Sub-step A</li>
+            <li>Sub-step B</li>
+          </ol>
+        </li>
+        <li>Third step</li>
+      </ol>
+      
+      <h4>Definition List</h4>
+      <dl>
+        <dt>Term 1</dt>
+        <dd>Definition for term 1</dd>
+        <dt>Term 2</dt>
+        <dd>Definition for term 2</dd>
+        <dd>Additional definition for term 2</dd>
+      </dl>
+        </div>
+        
+        <div>
+          <h3>Blockquotes</h3>
+      <blockquote>
+        "The best way to predict the future is to invent it."
+        <footer>
+          <cite>— Alan Kay</cite>
+        </footer>
+      </blockquote>
+      
+      <h3>Nested Blockquote</h3>
+      <blockquote>
+            "This is the outer quote."
+            <blockquote>
+              "This is a nested quote inside the first one."
+            </blockquote>
+            Back to the outer quote.
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code Elements -->
+    <section class="demo-section" id="code">
+      <h2>Code Elements</h2>
+      
+      <div class="grid">
+        <div>
+          <h3>Inline Code</h3>
+          <p>Use <code>inline code</code> for short code references.</p>
+        </div>
+        
+        <div>
+          <h3>Keyboard Input</h3>
+          <p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.</p>
+        </div>
+        
+        <div>
+          <h3>Sample Output</h3>
+          <p>The command outputs: <samp>Hello, World!</samp></p>
+        </div>
+      </div>
+      
+      <h3>Code Blocks</h3>
+      <pre><code>// JavaScript example
+function greet(name) {
+  return `Hello, ${name}!`;
 }
 
-/* Also works with: */
---daft-theme: rgb(32, 96, 223);
---daft-theme: hsl(220, 85%, 55%);
---daft-theme: tomato;</code></pre>
-            
-            <p>All other colors are automatically calculated from these base values:</p>
-            <ul>
-                <li>Hover states are dynamically darkened</li>
-                <li>Focus states use transparency</li>
-                <li>Borders and backgrounds use color-mix()</li>
-                <li>Text colors adapt to maintain contrast</li>
-            </ul>
-            
-            <h3>Benefits</h3>
-            <ul>
-                <li><strong>Single CSS file</strong> instead of 19 theme files</li>
-                <li><strong>Infinite color possibilities</strong> instead of predefined themes</li>
-                <li><strong>~90% smaller</strong> CSS footprint</li>
-                <li><strong>Easy customization</strong> with just 1 variable</li>
-            </ul>
-        </section>
-    </main>
+const message = greet('World');
+console.log(message);</code></pre>
+    </section>
 
-    <script>
-        function updateTheme() {
-            const picker = document.getElementById('color-picker');
-            const textInput = document.getElementById('color-value');
-            
-            // If text input has a value, use it; otherwise use color picker
-            const color = textInput.value || picker.value;
-            
-            // Update the CSS variable
-            document.documentElement.style.setProperty('--daft-theme', color);
-            
-            // Update both inputs to stay in sync
-            if (textInput.value && isValidColor(textInput.value)) {
-                // Try to update color picker if it's a valid hex
-                if (textInput.value.match(/^#[0-9A-F]{6}$/i)) {
-                    picker.value = textInput.value;
-                }
-            } else {
-                textInput.value = picker.value;
-            }
-            
-            // Clear preset theme classes
-            document.body.className = '';
-        }
+    <!-- Form Elements -->
+    <section class="demo-section" id="forms">
+      <h2>Form Elements</h2>
+      
+      <form>
+        <div class="grid">
+          <div>
+            <h3>Text Inputs</h3>
+        <label for="text-input">Text Input</label>
+        <input type="text" id="text-input" name="text" placeholder="Enter text">
         
-        function isValidColor(color) {
-            const s = new Option().style;
-            s.color = color;
-            return s.color !== '';
+        <label for="email-input">Email Input</label>
+        <input type="email" id="email-input" name="email" placeholder="email@example.com">
+        
+        <label for="password-input">Password Input</label>
+        <input type="password" id="password-input" name="password" placeholder="Enter password">
+        
+        <label for="tel-input">Telephone Input</label>
+        <input type="tel" id="tel-input" name="tel" placeholder="+1 (555) 123-4567">
+        
+        <label for="url-input">URL Input</label>
+        <input type="url" id="url-input" name="url" placeholder="https://example.com">
+        
+        <label for="number-input">Number Input</label>
+            <input type="number" id="number-input" name="number" placeholder="42" min="0" max="100">
+          </div>
+          
+          <div>
+            <h3>Search Input</h3>
+            <label for="search-input">Search</label>
+            <input type="search" id="search-input" name="search" placeholder="Search...">
+            
+            <h3>Date & Time Inputs</h3>
+        <div class="grid">
+          <div>
+            <label for="date-input">Date</label>
+            <input type="date" id="date-input" name="date">
+          </div>
+          <div>
+            <label for="time-input">Time</label>
+            <input type="time" id="time-input" name="time">
+          </div>
+        </div>
+        
+        <div class="grid">
+          <div>
+            <label for="datetime-input">Date & Time</label>
+            <input type="datetime-local" id="datetime-input" name="datetime">
+          </div>
+          <div>
+            <label for="month-input">Month</label>
+            <input type="month" id="month-input" name="month">
+          </div>
+        </div>
+        
+        <label for="week-input">Week</label>
+            <input type="week" id="week-input" name="week">
+          </div>
+        </div>
+        
+        <div class="grid">
+          <div>
+            <h3>Other Inputs</h3>
+        <label for="color-input">Color Picker</label>
+        <input type="color" id="color-input" name="color" value="#0ea5e9">
+        
+        <label for="file-input">File Upload</label>
+        <input type="file" id="file-input" name="file">
+        
+        <label for="range-input">Range Slider</label>
+            <input type="range" id="range-input" name="range" min="0" max="100" value="50">
+          </div>
+          
+          <div>
+            <h3>Select Dropdowns</h3>
+        <label for="select-single">Single Select</label>
+        <select id="select-single" name="select-single">
+          <option value="">Choose an option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        
+        <label for="select-multiple">Multiple Select</label>
+        <select id="select-multiple" name="select-multiple" multiple>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+          <option value="4">Option 4</option>
+            </select>
+            
+            <h3>Textarea</h3>
+            <label for="textarea">Message</label>
+            <textarea id="textarea" name="message" rows="4" placeholder="Enter your message here..."></textarea>
+          </div>
+        </div>
+        
+        <div class="grid">
+          <div>
+            <h3>Checkboxes and Radio Buttons</h3>
+        <fieldset>
+          <legend>Checkboxes</legend>
+          <label>
+            <input type="checkbox" name="checkbox1" checked>
+            Checkbox option 1
+          </label>
+          <label>
+            <input type="checkbox" name="checkbox2">
+            Checkbox option 2
+          </label>
+          <label>
+            <input type="checkbox" name="checkbox3">
+            Checkbox option 3
+          </label>
+        </fieldset>
+        
+        <fieldset>
+          <legend>Radio Buttons</legend>
+          <label>
+            <input type="radio" name="radio" value="1" checked>
+            Radio option 1
+          </label>
+          <label>
+            <input type="radio" name="radio" value="2">
+            Radio option 2
+          </label>
+          <label>
+            <input type="radio" name="radio" value="3">
+            Radio option 3
+          </label>
+            </fieldset>
+            
+            <h3>Switch</h3>
+            <label>
+              <input type="checkbox" role="switch" name="switch" checked>
+              Enable notifications
+            </label>
+          </div>
+          
+          <div>
+            <h3>Form Validation States</h3>
+        <label for="valid-input">Valid Input</label>
+        <input type="text" id="valid-input" value="Valid content" aria-invalid="false">
+        
+        <label for="invalid-input">Invalid Input</label>
+        <input type="text" id="invalid-input" value="Invalid content" aria-invalid="true">
+        <small>Error message for invalid input</small>
+        
+        <h3>Disabled States</h3>
+        <label for="disabled-text">Disabled Text Input</label>
+        <input type="text" id="disabled-text" value="Disabled content" disabled>
+        
+        <label for="disabled-select">Disabled Select</label>
+        <select id="disabled-select" disabled>
+          <option>Cannot select</option>
+        </select>
+        
+        <label>
+          <input type="checkbox" disabled> Disabled checkbox
+            </label>
+          </div>
+        </div>
+        
+        <div class="grid">
+          <div>
+            <h3>Input Groups</h3>
+            <label for="grouped-input">Input with Button</label>
+            <div role="group">
+              <input type="email" id="grouped-input" placeholder="Enter email">
+              <button type="button">Subscribe</button>
+            </div>
+            
+            <label for="search-group">Search Group</label>
+            <div role="search">
+              <input type="search" id="search-group" placeholder="Search products...">
+              <button type="button">Search</button>
+            </div>
+          </div>
+          
+          <div>
+            <h3>Groups with Size Variants</h3>
+            <div role="group" class="small">
+              <input type="text" placeholder="Small group">
+              <button type="button">Go</button>
+            </div>
+            
+            <div role="group" class="large">
+              <input type="text" placeholder="Large group">
+              <button type="button">Go</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid">
+          <div>
+            <h3>Size Variants</h3>
+            <label for="small-input">Small Input</label>
+            <input type="text" id="small-input" class="small" placeholder="Small size">
+            
+            <label for="normal-input">Normal Input</label>
+            <input type="text" id="normal-input" placeholder="Normal size">
+            
+            <label for="large-input">Large Input</label>
+            <input type="text" id="large-input" class="large" placeholder="Large size">
+          </div>
+          
+          <div>
+            <h3>Form Elements in Size Contexts</h3>
+            <div class="small">
+              <label for="context-small">Input in Small Context</label>
+              <input type="text" id="context-small" placeholder="Inherits small size">
+            </div>
+            
+            <div class="large">
+              <label for="context-large">Input in Large Context</label>
+              <input type="text" id="context-large" placeholder="Inherits large size">
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Buttons -->
+    <section class="demo-section" id="buttons">
+      <h2>Buttons</h2>
+      
+      <h3>Button Types</h3>
+      <div class="grid">
+        <button type="button">Primary Button</button>
+        <button type="button" class="secondary">Secondary Button</button>
+        <button type="button" class="contrast">Contrast Button</button>
+      </div>
+      
+      <h3>Outline Buttons</h3>
+      <div class="grid">
+        <button type="button" class="outline">Primary Outline</button>
+        <button type="button" class="outline secondary">Secondary Outline</button>
+        <button type="button" class="outline contrast">Contrast Outline</button>
+      </div>
+      
+      <h3>Reset Button</h3>
+      <button type="reset">Reset Button</button>
+      
+      <h3>Button States</h3>
+      <div class="grid">
+        <button type="button" disabled>Disabled</button>
+        <button type="button" aria-busy="true">Loading</button>
+      </div>
+      
+      <h3>Button Sizes</h3>
+      <p><button type="button" class="small">Small Button</button></p>
+      <p><button type="button">Normal Button</button></p>
+      <p><button type="button" class="large">Large Button</button></p>
+      
+      <h3>Link as Button</h3>
+      <a href="#" role="button">Link styled as button</a>
+      
+      <h3>Buttons in Size Contexts</h3>
+      <div class="small">
+        <button type="button">Button in small context</button>
+      </div>
+      
+      <div class="large">
+        <button type="button">Button in large context</button>
+      </div>
+    </section>
+
+    <!-- Tables -->
+    <section class="demo-section" id="tables">
+      <h2>Tables</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MacBook Pro</td>
+            <td>Laptops</td>
+            <td>$2,499</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>iPhone 15</td>
+            <td>Phones</td>
+            <td>$999</td>
+            <td>45</td>
+          </tr>
+          <tr>
+            <td>iPad Air</td>
+            <td>Tablets</td>
+            <td>$599</td>
+            <td>23</td>
+          </tr>
+          <tr>
+            <td>AirPods Pro</td>
+            <td>Audio</td>
+            <td>$249</td>
+            <td>67</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="2">Total Items</th>
+            <th colspan="2">147</th>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- Media & Embedded Content -->
+    <section class="demo-section" id="media">
+      <h2>Media & Embedded Content</h2>
+      
+      <h3>Images</h3>
+      <img src="https://via.placeholder.com/800x400" alt="Placeholder image">
+      
+      <h3>Figure with Caption</h3>
+      <figure>
+        <img src="https://via.placeholder.com/600x300" alt="Figure image">
+        <figcaption>This is a figure caption describing the image above.</figcaption>
+      </figure>
+      
+      <h3>Audio Element</h3>
+      <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      
+    </section>
+
+    <!-- Components -->
+    <section class="demo-section" id="components">
+      <h2>Components</h2>
+      
+      <h3>Accordion (Details/Summary)</h3>
+      <details>
+        <summary>Click to expand accordion item 1</summary>
+        <p>This is the content of the first accordion item. It can contain any HTML content.</p>
+      </details>
+      <details>
+        <summary>Click to expand accordion item 2</summary>
+        <p>This is the content of the second accordion item.</p>
+        <ul>
+          <li>With lists</li>
+          <li>And other elements</li>
+        </ul>
+      </details>
+      
+      <h3>Badge</h3>
+      <p>
+        Status: <span class="badge">Default</span>
+        <span class="badge primary">Primary</span>
+        <span class="badge secondary">Secondary</span>
+        <span class="badge contrast">Contrast</span>
+        <span class="badge outline">Outline</span>
+      </p>
+      
+      <h3>Badge Size Variants</h3>
+      <p>
+        <span class="badge small">Small Badge</span>
+        <span class="badge">Normal Badge</span>
+        <span class="badge large">Large Badge</span>
+      </p>
+      <p>
+        <span class="badge outline small">Small Outline</span>
+        <span class="badge primary large">Large Primary</span>
+      </p>
+      
+      <h3>Card</h3>
+      <article>
+        <header>
+          <h4>Card Title</h4>
+        </header>
+        <p>This is a card component using the article element. Cards can contain any content and are great for grouping related information.</p>
+        <footer>
+          <button type="button" class="small">Action</button>
+        </footer>
+      </article>
+      
+      <h3>Dropdown</h3>
+      <details class="dropdown">
+        <summary>Dropdown Menu</summary>
+        <ul>
+          <li><a href="#">Option 1</a></li>
+          <li><a href="#">Option 2</a></li>
+          <li><a href="#">Option 3</a></li>
+        </ul>
+      </details>
+      
+      <h3>Loading States</h3>
+      <p aria-busy="true">Loading content...</p>
+      
+      <h3>Modal Dialog</h3>
+      <button type="button" onclick="document.getElementById('demo-modal').showModal()">Open Modal</button>
+      <dialog id="demo-modal">
+        <article>
+          <header>
+            <button aria-label="Close" rel="prev" onclick="document.getElementById('demo-modal').close()">×</button>
+            <h3>Modal Title</h3>
+          </header>
+          <p>This is a modal dialog. Click the × or press Escape to close.</p>
+          <footer>
+            <button type="button" class="secondary" onclick="document.getElementById('demo-modal').close()">Cancel</button>
+            <button type="button" onclick="document.getElementById('demo-modal').close()">Confirm</button>
+          </footer>
+        </article>
+      </dialog>
+      
+      <h3>Navigation</h3>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <h4>Breadcrumb Navigation</h4>
+      <nav aria-label="breadcrumb">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li>Current Page</li>
+        </ul>
+      </nav>
+      
+      <h3>Progress Bar</h3>
+      <progress value="70" max="100">70%</progress>
+      
+      <h3>Tooltips</h3>
+      <p>
+        Hover over these elements:
+        <span data-tooltip="Top tooltip" data-placement="top">Top</span>,
+        <span data-tooltip="Bottom tooltip" data-placement="bottom">Bottom</span>,
+        <span data-tooltip="Left tooltip" data-placement="left">Left</span>,
+        <span data-tooltip="Right tooltip" data-placement="right">Right</span>
+      </p>
+    </section>
+
+    <!-- Utilities -->
+    <section class="demo-section" id="utilities">
+      <h2>Other Elements</h2>
+      
+      <h3>Horizontal Rule</h3>
+      <p>Content before the rule.</p>
+      <hr>
+      <p>Content after the rule.</p>
+      
+      <h3>Hidden Elements</h3>
+      <p>There's a hidden element here: <span hidden>You can't see me!</span></p>
+      <p>Hidden but accessible: <span aria-hidden="false" hidden>Screen readers can access this</span></p>
+      
+      <h3>Semantic Landmarks</h3>
+      <aside>
+        <h4>Aside Content</h4>
+        <p>This is an aside element, typically used for sidebars or related content.</p>
+      </aside>
+      
+      <h3>RTL Support</h3>
+      <div dir="rtl" style="border: 1px solid var(--daft-border-color); padding: 1rem; margin: 1rem 0;">
+        <p>هذا نص باللغة العربية (This is Arabic text)</p>
+        <button type="button">زر</button>
+      </div>
+      
+      <h3>Data Theme Attribute</h3>
+      <div data-theme="dark" style="padding: 1rem; margin: 1rem 0;">
+        <p>This section uses data-theme="dark" attribute</p>
+        <button type="button">Themed Button</button>
+      </div>
+      
+      <h3>Theme Color Customization</h3>
+      <p>The framework uses <code>--daft-theme-color</code> CSS variable for theming. Try changing it:</p>
+      <div class="demo-code">
+        :root {
+          --daft-theme-color: #0ea5e9; /* Sky blue (default) */
         }
-    </script>
+      </div>
+      
+      <div tabindex="0">This div is focusable with tabindex="0"</div>
+      <div tabindex="-1">This div has tabindex="-1" (programmatically focusable)</div>
+    </section>
+
+    <footer>
+      <hr>
+      <p><small>Daft CSS Framework - Comprehensive Example</small></p>
+    </footer>
+  </main>
 </body>
 </html>

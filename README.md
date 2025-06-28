@@ -78,6 +78,9 @@ Or use any CSS color format:
 
 ### Recent Updates
 
+- [x] **Major SCSS optimizations** - Reduced codebase by 10%+ through two critical improvements:
+  - **Eliminated element-sizes.scss duplication** - Reduced file from 265 to 167 lines (37% reduction) by creating unified mixins that generate both direct and container-based selectors
+  - **Created shared interactive element base** - Extracted common styles from buttons and form elements into a reusable mixin, removing ~100 lines of duplicate code
 - [x] **Fixed search input text overlap** - Implemented CSS variable-based spacing system for `.small` and `.large` form elements, ensuring consistent padding calculations across all input types including search fields
 
 ## Credits

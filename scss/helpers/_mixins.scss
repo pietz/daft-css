@@ -1,0 +1,71 @@
+@use "../settings" as *;
+
+// Shared base styles for all interactive elements (buttons, inputs, selects, textareas)
+@mixin interactive-element-base {
+  // CSS variables for theming
+  #{$css-var-prefix}background-color: var(
+    #{$css-var-prefix}form-element-background-color
+  );
+  #{$css-var-prefix}border-color: var(
+    #{$css-var-prefix}form-element-border-color
+  );
+  #{$css-var-prefix}color: var(#{$css-var-prefix}form-element-color);
+  #{$css-var-prefix}box-shadow: none;
+
+  // Core styles
+  padding: var(#{$css-var-prefix}form-element-spacing-vertical)
+    var(#{$css-var-prefix}form-element-spacing-horizontal);
+  border: var(#{$css-var-prefix}border-width) solid
+    var(#{$css-var-prefix}border-color);
+  border-radius: var(#{$css-var-prefix}border-radius);
+  outline: none;
+  background-color: var(#{$css-var-prefix}background-color);
+  box-shadow: var(#{$css-var-prefix}box-shadow);
+  color: var(#{$css-var-prefix}color);
+  font-weight: var(#{$css-var-prefix}font-weight);
+  font-size: 1rem;
+  line-height: var(#{$css-var-prefix}line-height);
+
+  // Transitions
+  @if $enable-transitions {
+    transition:
+      background-color var(#{$css-var-prefix}transition),
+      border-color var(#{$css-var-prefix}transition),
+      color var(#{$css-var-prefix}transition),
+      box-shadow var(#{$css-var-prefix}transition);
+  }
+}
+
+// Focus state mixin for interactive elements
+@mixin interactive-element-focus(
+  $focus-color-var: #{$css-var-prefix}form-element-focus-color
+) {
+  #{$css-var-prefix}box-shadow: 0 0 0 var(#{$css-var-prefix}outline-width)
+    var(#{$focus-color-var});
+}
+
+// Disabled state mixin
+@mixin interactive-element-disabled {
+  opacity: var(#{$css-var-prefix}form-element-disabled-opacity, 0.5);
+  pointer-events: none;
+}
+
+// Button selectors placeholder - used across multiple files
+@mixin button-selectors {
+  button,
+  [type="submit"],
+  [type="button"],
+  [type="reset"],
+  [role="button"] {
+    @content;
+  }
+}
+
+// Form input selectors placeholder
+@mixin form-input-selectors {
+  input:not([type="checkbox"], [type="radio"]),
+  select,
+  textarea {
+    @content;
+  }
+}

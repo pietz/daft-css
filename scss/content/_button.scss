@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "../settings" as *;
+@use "../helpers/mixins" as *;
 
 @if map.get($modules, "content/button") {
   /**
@@ -38,6 +39,9 @@
   #{$parent-selector} [type="button"],
   #{$parent-selector} [type="file"]::file-selector-button,
   #{$parent-selector} [role="button"] {
+    @include interactive-element-base;
+
+    // Button-specific overrides
     #{$css-var-prefix}background-color: var(#{$css-var-prefix}primary);
     #{$css-var-prefix}border-color: var(#{$css-var-prefix}primary);
     #{$css-var-prefix}color: var(#{$css-var-prefix}primary-inverse);
@@ -45,31 +49,12 @@
       #{$css-var-prefix}button-box-shadow,
       0 0 0 rgba(0, 0, 0, 0)
     );
-    padding: var(#{$css-var-prefix}form-element-spacing-vertical)
-      var(#{$css-var-prefix}form-element-spacing-horizontal);
-    border: var(#{$css-var-prefix}border-width)
-      solid
-      var(#{$css-var-prefix}border-color);
-    border-radius: var(#{$css-var-prefix}border-radius);
-    outline: none;
-    background-color: var(#{$css-var-prefix}background-color);
-    box-shadow: var(#{$css-var-prefix}box-shadow);
-    color: var(#{$css-var-prefix}color);
-    font-weight: var(#{$css-var-prefix}font-weight);
-    font-size: 1rem;
-    line-height: var(#{$css-var-prefix}line-height);
+
+    // Button-specific styles
     text-align: center;
     text-decoration: none;
     cursor: pointer;
     user-select: none;
-
-    @if $enable-transitions {
-      transition:
-        background-color var(#{$css-var-prefix}transition),
-        border-color var(#{$css-var-prefix}transition),
-        color var(#{$css-var-prefix}transition),
-        box-shadow var(#{$css-var-prefix}transition);
-    }
 
     &:is([aria-current]:not([aria-current="false"])),
     &:is(:hover, :active, :focus) {
@@ -302,7 +287,6 @@
       [type="reset"],
       [role="button"]
     ) {
-    opacity: 0.5;
-    pointer-events: none;
+    @include interactive-element-disabled;
   }
 }
